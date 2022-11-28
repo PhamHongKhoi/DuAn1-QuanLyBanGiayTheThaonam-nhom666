@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/Documents/DA1-BanGiay/src/Views/FrmDasBoard.java</file>
-            <file>file:/C:/Users/Admin/Documents/DA1-BanGiay/src/Utilities/SQLServerConnection.java</file>
-            <file>file:/C:/Users/Admin/Documents/DA1-BanGiay/src/Repository/Iplm/HoaDonRepository.java</file>
-            <file>file:/C:/Users/Admin/Documents/DA1-BanGiay/src/Views/testgit.java</file>
-            <file>file:/C:/Users/Admin/Documents/DA1-BanGiay/src/Repository/Iplm/NhanVienRespository.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Utilities/SQLServerConnection.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmDasBoard.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyKhachHang.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/KhachHang.java</file>
         </group>
     </open-files>
 </project-private>
