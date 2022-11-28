@@ -183,6 +183,8 @@ public class FrmDasBoard extends javax.swing.JFrame {
         }
         
         TBHoaDon.removeColumn(TBHoaDon.getColumnModel().getColumn(1));
+        TBGioHang.removeColumn(TBGioHang.getColumnModel().getColumn(1));
+        TBSanPham.removeColumn(TBSanPham.getColumnModel().getColumn(1));
         btnRefresh.doClick();
         
         showChoThanhToan();
@@ -262,7 +264,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             tienShiptt = 0;
         }
         for (int i = 0; i < TBGioHang.getRowCount(); i++) {
-            sum = sum + Integer.parseInt(TBGioHang.getValueAt(i, 6).toString());
+            sum = sum + Integer.parseInt(TBGioHang.getModel().getValueAt(i, 6).toString());
         }
         System.out.println(sum);
         Locale locale = new Locale("vi", "VN");
@@ -320,8 +322,8 @@ public class FrmDasBoard extends javax.swing.JFrame {
     
     private void capNhapSoLuongTonKho() {
         int rowGH = TBGioHang.getSelectedRow();
-        String idSelected = (String) TBGioHang.getValueAt(rowGH, 1);
-        int soLuongThemLai = (int) TBGioHang.getValueAt(rowGH, 4);
+        String idSelected = (String) TBGioHang.getModel().getValueAt(rowGH, 1);
+        int soLuongThemLai = (int) TBGioHang.getModel().getValueAt(rowGH, 4);
         ArrayList<DanhSachSanPhamResponse> listSL = danhSAchSanPhamService.getSoLuongById(idSelected);
         int soLuongTon = 0;
         for (DanhSachSanPhamResponse danhSachSanPhamResponse : listSL) {
@@ -2011,7 +2013,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
                             .addComponent(jLabel27)
                             .addComponent(jLabel26))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1539, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1547, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jpbSanPhamChiTietLayout.setVerticalGroup(
@@ -3179,7 +3181,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             int tienKhachDua = Integer.valueOf(txtTienKhachDua.getText());
             int sum = 0;
             for (int i = 0; i < TBGioHang.getRowCount(); i++) {
-                sum = sum + Integer.parseInt(TBGioHang.getValueAt(i, 6).toString());
+                sum = sum + Integer.parseInt(TBGioHang.getModel().getValueAt(i, 6).toString());
             }
             if (tienKhachDua < sum) {
                 JOptionPane.showMessageDialog(this, "Số tiền khách trả không đủ");
@@ -3236,7 +3238,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
                 tienShiptt = 0;
             }
             for (int i = 0; i < TBGioHang.getRowCount(); i++) {
-                sum = sum + Integer.parseInt(TBGioHang.getValueAt(i, 6).toString());
+                sum = sum + Integer.parseInt(TBGioHang.getModel().getValueAt(i, 6).toString());
             }
             if (tienKhachDua < sum) {
                 JOptionPane.showMessageDialog(this, "Số tiền khách trả không đủ");
@@ -3730,7 +3732,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
                     int rowSP = TBSanPham.getSelectedRow();
 
                     //show hinh anh
-                    String hinhAnh = (String) TBSanPham.getValueAt(row, 9);
+                    String hinhAnh = (String) TBSanPham.getModel().getValueAt(row, 9);
                     lblHinhAnhBH.setText("");
                     ImageIcon imgIcon = new ImageIcon(getClass().getResource("/image/" + hinhAnh));
                     Image img = imgIcon.getImage();
@@ -3739,26 +3741,26 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
                     // them san pham vao hdct
                     String input = JOptionPane.showInputDialog("Mời nhập số lượng: ");
-                    if ((int) TBSanPham.getValueAt(row, 6) < Integer.valueOf(input)) {
+                    if ((int) TBSanPham.getModel().getValueAt(row, 6) < Integer.valueOf(input)) {
                         JOptionPane.showMessageDialog(rootPane, "Số lượng hàng vượt quá lượng tồn kho");
                         return;
                     }
-                    chiTietHoaDon.setIdCTSP((String) TBSanPham.getValueAt(row, 1));
-                    chiTietHoaDon.setMaSP((String) TBSanPham.getValueAt(row, 2));
-                    chiTietHoaDon.setTenSP((String) TBSanPham.getValueAt(row, 3));
+                    chiTietHoaDon.setIdCTSP((String) TBSanPham.getModel().getValueAt(row, 1));
+                    chiTietHoaDon.setMaSP((String) TBSanPham.getModel().getValueAt(row, 2));
+                    chiTietHoaDon.setTenSP((String) TBSanPham.getModel().getValueAt(row, 3));
                     chiTietHoaDon.setSoLuong(Integer.valueOf(input));
-                    chiTietHoaDon.setDonGia((float) TBSanPham.getValueAt(row, 8));
+                    chiTietHoaDon.setDonGia((float) TBSanPham.getModel().getValueAt(row, 8));
                     String idHDSelected = (String) TBHoaDon.getModel().getValueAt(rowHD, 1);
                     
-                    ChiTietHoaDon chiTietHoaDonAdd = new ChiTietHoaDon(idHDSelected, (String) TBSanPham.getValueAt(row, 1), Integer.valueOf(input), (float) TBSanPham.getValueAt(row, 8));
+                    ChiTietHoaDon chiTietHoaDonAdd = new ChiTietHoaDon(idHDSelected, (String) TBSanPham.getModel().getValueAt(row, 1), Integer.valueOf(input), (float) TBSanPham.getModel().getValueAt(row, 8));
                     
                     chiTietHoaDonService.saveHoaDonCT(chiTietHoaDonAdd);
                     listCTHD.add(chiTietHoaDon);
                     showDataTableCTHD(listCTHD);
 
                     // cap nhap lai danh sach sp sau khi them vao gio
-                    String idSelected = (String) TBSanPham.getValueAt(row, 1);
-                    int soLuongSauKhiThem = (int) TBSanPham.getValueAt(rowSP, 6) - Integer.valueOf(input);
+                    String idSelected = (String) TBSanPham.getModel().getValueAt(row, 1);
+                    int soLuongSauKhiThem = (int) TBSanPham.getModel().getValueAt(rowSP, 6) - Integer.valueOf(input);
                     DanhSachSanPhamResponse dsspr = new DanhSachSanPhamResponse(soLuongSauKhiThem);
                     JOptionPane.showMessageDialog(rootPane, danhSAchSanPhamService.updateSoLuongSP(dsspr, idSelected));
                     listDssp = danhSAchSanPhamService.getAll();
@@ -3766,7 +3768,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
                     showTongTien();
                     
                 } else {
-                    String hinhAnh = (String) TBSanPham.getValueAt(row, 9);
+                    String hinhAnh = (String) TBSanPham.getModel().getValueAt(row, 9);
                     lblHinhAnhBH.setText("");
                     ImageIcon imgIcon = new ImageIcon(getClass().getResource("/image/" + hinhAnh));
                     Image img = imgIcon.getImage();
@@ -3934,7 +3936,8 @@ public class FrmDasBoard extends javax.swing.JFrame {
         int rowGH = TBGioHang.getSelectedRow();
         int rowHD = TBHoaDon.getSelectedRow();
         String idHD = (String) TBHoaDon.getModel().getValueAt(rowHD, 1);
-        String idCTSP = (String) TBGioHang.getValueAt(rowGH, 1);
+        String idCTSP = (String) TBGioHang.getModel().getValueAt(rowGH, 1);
+        System.out.println("id ctsp: "+idCTSP);
         capNhapSoLuongTonKho();
         JOptionPane.showMessageDialog(this, chiTietHoaDonService.delete(idHD, idCTSP));
         listCTHD = chiTietHoaDonService.getDataByID(idHD);
