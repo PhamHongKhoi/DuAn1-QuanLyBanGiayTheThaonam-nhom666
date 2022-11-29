@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/IKhachHangService.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Utilities/SQLServerConnection.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmChaoMoiNguoi.java</file>
@@ -18,6 +19,10 @@
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/KhachHang.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/Iplm/ChiTietSanPhamRespository.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/IKhachHangRespository.java</file>
+=======
+            <file>file:/C:/Users/Admin/Documents/Da11/src/Views/FrmDasBoard.java</file>
+            <file>file:/C:/Users/Admin/Documents/Da11/src/Utilities/SQLServerConnection.java</file>
+>>>>>>> eaaa62c03e97a50978bb42ad8320273adc014f7b
         </group>
     </open-files>
 </project-private>

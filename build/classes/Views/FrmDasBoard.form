@@ -1765,7 +1765,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jPanel11" max="32767" attributes="0"/>
                                       <Component id="jPanel12" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jPanel6" alignment="0" pref="1547" max="32767" attributes="0"/>
+                                      <Component id="jPanel6" alignment="0" pref="1550" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
