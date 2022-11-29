@@ -9,12 +9,17 @@ package ViewModels;
  * @author admin
  */
 public class QuanLyNhaSanXuat {
+
     private String id;
     private String ma;
     private String ten;
     private int trangThai;
 
     public QuanLyNhaSanXuat() {
+    }
+
+    public QuanLyNhaSanXuat(String ten) {
+        this.ten = ten;
     }
 
     public QuanLyNhaSanXuat(String id, String ma, String ten, int trangThai) {
@@ -55,9 +60,9 @@ public class QuanLyNhaSanXuat {
     public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
-    
-     public Object[] todata() {
+
+    public Object[] todata() {
         return new Object[]{id, ma, ten, trangThai == 0 ? "hoạt động" : " không hoạt động"};
     }
-    
+
 }

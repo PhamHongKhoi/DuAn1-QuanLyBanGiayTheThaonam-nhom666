@@ -17,6 +17,10 @@ public class NhaSanXuat {
     public NhaSanXuat() {
     }
 
+    public NhaSanXuat(String ten) {
+        this.ten = ten;
+    }
+
     public NhaSanXuat(String id, String ma, String ten, int trangThai) {
         this.id = id;
         this.ma = ma;
