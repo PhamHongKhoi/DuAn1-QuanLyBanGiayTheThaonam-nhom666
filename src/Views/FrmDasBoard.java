@@ -198,8 +198,8 @@ public class FrmDasBoard extends javax.swing.JFrame {
         }
 
         TBHoaDon.removeColumn(TBHoaDon.getColumnModel().getColumn(1));
-//        TBGioHang.removeColumn(TBGioHang.getColumnModel().getColumn(1));
-//        TBSanPham.removeColumn(TBSanPham.getColumnModel().getColumn(1));
+        TBGioHang.removeColumn(TBGioHang.getColumnModel().getColumn(1));
+        TBSanPham.removeColumn(TBSanPham.getColumnModel().getColumn(1));
         btnRefresh.doClick();
 
         showChoThanhToan();
@@ -3515,7 +3515,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
     private void btnHuyHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyHoaDonActionPerformed
         int rowHD = TBHoaDon.getSelectedRow();
-        String maSelected = TBHoaDon.getValueAt(rowHD, 2).toString();
+        String maSelected = TBHoaDon.getModel().getValueAt(rowHD, 2).toString();
         int trangThai = 2;
         HoaDon hoaDon = new HoaDon(trangThai);
         JOptionPane.showMessageDialog(this, hoaDonService.updateThanhToan(hoaDon, maSelected));
@@ -3527,7 +3527,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         try {
             //them thong tin khach hang vao hoa don
             int rowHD = TBHoaDon.getSelectedRow();
-            String idSelected = TBHoaDon.getValueAt(rowHD, 1).toString();
+            String idSelected = TBHoaDon.getModel().getValueAt(rowHD, 1).toString();
             String tenkh = txtTenKHGiaoHang.getText();
             String sdt = txtSDTGiaoHang.getText();
             String diaChi = txtDiaChiGiaoHang.getText();
@@ -3556,7 +3556,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             jTienThuaGiaoHang.setText(format.format(tienThua));
 
             //cap nhat trang thai 
-            String maSelected = TBHoaDon.getValueAt(rowHD, 2).toString();
+            String maSelected = TBHoaDon.getModel().getValueAt(rowHD, 2).toString();
             int trangThai = 1;
             HoaDon hoaDon = new HoaDon(trangThai);
             JOptionPane.showMessageDialog(this, hoaDonService.updateThanhToan(hoaDon, maSelected));
@@ -3571,7 +3571,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
     private void btnHuyHoaDonGHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyHoaDonGHActionPerformed
         int rowHD = TBHoaDon.getSelectedRow();
-        String maSelected = TBHoaDon.getValueAt(rowHD, 2).toString();
+        String maSelected = TBHoaDon.getModel().getValueAt(rowHD, 2).toString();
         int trangThai = 2;
         HoaDon hoaDon = new HoaDon(trangThai);
         JOptionPane.showMessageDialog(this, hoaDonService.updateThanhToan(hoaDon, maSelected));
@@ -3581,7 +3581,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
     private void btnGuiHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuiHangActionPerformed
         int rowHD = TBHoaDon.getSelectedRow();
-        String idSelected = TBHoaDon.getValueAt(rowHD, 1).toString();
+        String idSelected = TBHoaDon.getModel().getValueAt(rowHD, 1).toString();
         String tenkh = txtTenKHGiaoHang.getText();
         String sdt = txtSDTGiaoHang.getText();
         String diaChi = txtDiaChiGiaoHang.getText();
@@ -4056,9 +4056,8 @@ public class FrmDasBoard extends javax.swing.JFrame {
                     chiTietHoaDon.setTenSP((String) TBSanPham.getModel().getValueAt(row, 3));
                     chiTietHoaDon.setSoLuong(Integer.valueOf(input));
                     chiTietHoaDon.setDonGia((float) TBSanPham.getModel().getValueAt(row, 8));
-                    String idHDSelected = (String) TBHoaDon.getModel().getValueAt(rowHD, 1);
 
-                    ChiTietHoaDon chiTietHoaDonAdd = new ChiTietHoaDon(idHDSelected, (String) TBSanPham.getModel().getValueAt(row, 1), Integer.valueOf(input), (float) TBSanPham.getModel().getValueAt(row, 8));
+                    ChiTietHoaDon chiTietHoaDonAdd = new ChiTietHoaDon((String) TBHoaDon.getModel().getValueAt(rowHD, 1), (String) TBSanPham.getModel().getValueAt(row, 1), Integer.valueOf(input), (float) TBSanPham.getModel().getValueAt(row, 8));
 
                     chiTietHoaDonService.saveHoaDonCT(chiTietHoaDonAdd);
                     listCTHD.add(chiTietHoaDon);
