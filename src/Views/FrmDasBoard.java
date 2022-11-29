@@ -19,6 +19,7 @@ import Services.Iplm.ChiTietSanPhamServiceIplm;
 import Services.Iplm.DanhSachSanPhamService;
 import Services.Iplm.DongSPRService;
 import Services.Iplm.DongSanPhamImpl;
+import Services.Iplm.KhachHangService;
 import Services.Iplm.KichCoRService;
 import Services.Iplm.KichCoServiceImpl;
 import Services.Iplm.KieuDangImpl;
@@ -35,6 +36,7 @@ import ViewModels.KichCoRResponse;
 import ViewModels.QuanLyChatLieu;
 import ViewModels.QuanLyChiTietSanPham;
 import ViewModels.QuanLyDongSanPham;
+import ViewModels.QuanLyKhachHang;
 import ViewModels.QuanLyKichco;
 import ViewModels.QuanLyKieuDang;
 import ViewModels.QuanLyMauSac;
@@ -113,13 +115,13 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private DefaultTableModel dtmThuocTinh = new DefaultTableModel();
     private DefaultComboBoxModel dcbbThuocTinh = new DefaultComboBoxModel();
     private List<String> lstThuocTinh = new ArrayList<>();
-    DongSanPhamImpl dspi = new DongSanPhamImpl();
-    List<QuanLyDongSanPham> lstDongSanPham = new ArrayList<>();
-    KichCoServiceImpl kcsi = new KichCoServiceImpl();
-    List<QuanLyKichco> lstKichCo = new ArrayList<>();
-    KieuDangImpl kdi = new KieuDangImpl();
-    List<QuanLyKieuDang> lstKieuDang = new ArrayList<>();
-    ThuongHieuServiceImpl thsi = new ThuongHieuServiceImpl();
+    private DongSanPhamImpl dspi = new DongSanPhamImpl();
+    private List<QuanLyDongSanPham> lstDongSanPham = new ArrayList<>();
+    private KichCoServiceImpl kcsi = new KichCoServiceImpl();
+    private List<QuanLyKichco> lstKichCo = new ArrayList<>();
+    private KieuDangImpl kdi = new KieuDangImpl();
+    private List<QuanLyKieuDang> lstKieuDang = new ArrayList<>();
+    private ThuongHieuServiceImpl thsi = new ThuongHieuServiceImpl();
     List<QuanLyThuongHieu> lstThuongHieu = new ArrayList<>();
     NhaSanXuatImpl nsxi = new NhaSanXuatImpl();
     List<QuanLyNhaSanXuat> lstNhaSanXuat = new ArrayList<>();
@@ -148,6 +150,12 @@ public class FrmDasBoard extends javax.swing.JFrame {
     DefaultComboBoxModel dcbbMauSac = new DefaultComboBoxModel();
     DefaultComboBoxModel dcbbChatLieu = new DefaultComboBoxModel();
     DefaultComboBoxModel dcbbDongSp = new DefaultComboBoxModel<>();
+
+    private DefaultTableModel dtmKhachHang = new DefaultTableModel();
+    private List<QuanLyKhachHang> lstKh = new ArrayList<>();
+    private KhachHangService khs = new KhachHangService();
+    private DefaultComboBoxModel dcbbTrangThaiKhachHang = new DefaultComboBoxModel();
+    private List<String> lstTrangThaiKhachHang = new ArrayList<>();
 
     public FrmDasBoard() {
         initComponents();
@@ -255,6 +263,67 @@ public class FrmDasBoard extends javax.swing.JFrame {
         lstChatLieu = cls.getAll();
         showComBoxCtspChatLieu(lstChatLieu);
 
+        tbKhachHang.setModel(dtmKhachHang);
+        cbbKhachHang.setModel(dcbbTrangThaiKhachHang);
+        String[] kh = {"Id", "Mã", "Tên", "Giới tính", "Ngày sinh", "Sdt", "Địa chỉ", "Trạng thái"};
+        dtmKhachHang.setColumnIdentifiers(kh);
+        lstKh = khs.getAll();
+        showTableKhachHang(lstKh);
+        showComBoxKH();
+    }
+
+    private void fillKhachHang(int row) {
+        QuanLyKhachHang qlkh = lstKh.get(row);
+        jlbIdKhachHang.setText(qlkh.getId());
+        txtMaKhachHang.setText(qlkh.getMa());
+        txtTenKhachHang.setText(qlkh.getTen());
+        jdcNgaySinhKhachHang.setDate(qlkh.getNgaySinh());
+        int gender = qlkh.getGioiTinh();
+        if (gender == 0) {
+            rdbtNamKhachHang.setSelected(true);
+        } else {
+            rdbtNuKhachHang.setSelected(true);
+        }
+        txtSoDienThoaiKhachHang.setText(qlkh.getSoDienThoai());
+        txtDiaChiKhachHang.setText(qlkh.getDiaChi());
+        cbbKhachHang.setSelectedIndex(qlkh.getTrangThai());
+    }
+
+    private QuanLyKhachHang getKhachHang() {
+        String ma = txtMaKhachHang.getText();
+        String ten = txtTenKhachHang.getText();
+        Date ngaySinh = jdcNgaySinhKhachHang.getDate();
+        boolean gioiTinh = rdbtNamKhachHang.isSelected();
+        int gender;
+        if (gioiTinh == true) {
+            gender = 0;
+        } else {
+            gender = 1;
+        }
+        String sdt = txtSoDienThoaiKhachHang.getText();
+        String diaChi = txtDiaChiKhachHang.getText();
+        int trangThai = cbbKhachHang.getSelectedIndex();
+
+        QuanLyKhachHang qlkh = new QuanLyKhachHang(null, ma, ten, gender, ngaySinh, sdt, diaChi, trangThai);
+
+        return qlkh;
+    }
+
+    private void showTableKhachHang(List<QuanLyKhachHang> lst) {
+        dtmKhachHang.setRowCount(0);
+        for (QuanLyKhachHang ql : lst) {
+            dtmKhachHang.addRow(ql.ArriveKhachHang());
+        }
+    }
+
+    private void showComBoxKH() {
+        for (int i = 0; i < 2; i++) {
+            lstTrangThaiKhachHang.add(String.valueOf(i));
+        }
+
+        for (String s : lstTrangThaiKhachHang) {
+            dcbbTrangThaiKhachHang.addElement(s);
+        }
     }
 
     private void fillCtSp(int row) {
@@ -537,6 +606,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
         buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         btBanHang = new javax.swing.JButton();
@@ -820,20 +890,20 @@ public class FrmDasBoard extends javax.swing.JFrame {
         jlbIdKhachHang = new javax.swing.JLabel();
         txtMaKhachHang = new javax.swing.JTextField();
         txtTenKhachHang = new javax.swing.JTextField();
-        jdcNgaySinh = new com.toedter.calendar.JDateChooser();
-        txtSoDienThoai = new javax.swing.JTextField();
+        jdcNgaySinhKhachHang = new com.toedter.calendar.JDateChooser();
+        txtSoDienThoaiKhachHang = new javax.swing.JTextField();
         txtDiaChiKhachHang = new javax.swing.JTextField();
         cbbKhachHang = new javax.swing.JComboBox<>();
         jPanel30 = new javax.swing.JPanel();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        btThemKhachHang = new javax.swing.JButton();
+        btSuaKhachHang = new javax.swing.JButton();
+        btXoaKhachHang = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         rdbtNamKhachHang = new javax.swing.JRadioButton();
         rdbtNuKhachHang = new javax.swing.JRadioButton();
         jPanel28 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tbKhachHang = new javax.swing.JTable();
         jLabel30 = new javax.swing.JLabel();
         jPanel29 = new javax.swing.JPanel();
         jLabel58 = new javax.swing.JLabel();
@@ -3127,13 +3197,33 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
         jPanel30.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton11.setText("Thêm");
+        btThemKhachHang.setText("Thêm");
+        btThemKhachHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btThemKhachHangActionPerformed(evt);
+            }
+        });
 
-        jButton12.setText("Sửa");
+        btSuaKhachHang.setText("Sửa");
+        btSuaKhachHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSuaKhachHangActionPerformed(evt);
+            }
+        });
 
-        jButton13.setText("Xóa");
+        btXoaKhachHang.setText("Xóa");
+        btXoaKhachHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btXoaKhachHangActionPerformed(evt);
+            }
+        });
 
         jButton14.setText("Làm mới");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
         jPanel30.setLayout(jPanel30Layout);
@@ -3142,9 +3232,9 @@ public class FrmDasBoard extends javax.swing.JFrame {
             .addGroup(jPanel30Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btThemKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btSuaKhachHang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btXoaKhachHang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -3152,18 +3242,20 @@ public class FrmDasBoard extends javax.swing.JFrame {
             jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel30Layout.createSequentialGroup()
                 .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jButton11)
+                .addComponent(btThemKhachHang)
                 .addGap(18, 18, 18)
-                .addComponent(jButton12)
+                .addComponent(btSuaKhachHang)
                 .addGap(18, 18, 18)
-                .addComponent(jButton13)
+                .addComponent(btXoaKhachHang)
                 .addGap(18, 18, 18)
                 .addComponent(jButton14)
                 .addGap(15, 15, 15))
         );
 
+        buttonGroup5.add(rdbtNamKhachHang);
         rdbtNamKhachHang.setText("Nam");
 
+        buttonGroup5.add(rdbtNuKhachHang);
         rdbtNuKhachHang.setText("Nữ");
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
@@ -3188,6 +3280,11 @@ public class FrmDasBoard extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel27Layout.createSequentialGroup()
+                        .addComponent(jLabel96)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtSoDienThoaiKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(133, 133, 133))
+                    .addGroup(jPanel27Layout.createSequentialGroup()
                         .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel95, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                             .addComponent(jLabel94, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -3197,20 +3294,18 @@ public class FrmDasBoard extends javax.swing.JFrame {
                                 .addComponent(rdbtNamKhachHang)
                                 .addGap(36, 36, 36)
                                 .addComponent(rdbtNuKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jdcNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jdcNgaySinhKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 90, Short.MAX_VALUE)
                         .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel98, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel97, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDiaChiKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbbKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel27Layout.createSequentialGroup()
-                        .addComponent(jLabel96)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtSoDienThoai, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(133, 133, 133)
+                            .addGroup(jPanel27Layout.createSequentialGroup()
+                                .addComponent(jLabel98)
+                                .addGap(18, 18, 18)
+                                .addComponent(cbbKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel27Layout.createSequentialGroup()
+                                .addComponent(jLabel97, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtDiaChiKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)))
                 .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(282, Short.MAX_VALUE))
         );
@@ -3237,7 +3332,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
                                     .addComponent(jLabel95)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel27Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jdcNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jdcNgaySinhKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel98)
                         .addComponent(cbbKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -3246,7 +3341,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
                     .addComponent(jLabel93)
                     .addComponent(jLabel96)
                     .addComponent(txtTenKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSoDienThoai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSoDienThoaiKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
             .addGroup(jPanel27Layout.createSequentialGroup()
                 .addContainerGap()
@@ -3256,7 +3351,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
         jPanel28.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tbKhachHang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -3267,7 +3362,12 @@ public class FrmDasBoard extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane10.setViewportView(jTable3);
+        tbKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbKhachHangMouseClicked(evt);
+            }
+        });
+        jScrollPane10.setViewportView(tbKhachHang);
 
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
@@ -3276,7 +3376,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             .addGroup(jPanel28Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 1366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4358,6 +4458,65 @@ public class FrmDasBoard extends javax.swing.JFrame {
         lstCtSp = ctspI.getAll();
         showTableChiTietSp(lstCtSp);
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void tbKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbKhachHangMouseClicked
+        int row = tbKhachHang.getSelectedRow();
+        fillKhachHang(row);
+    }//GEN-LAST:event_tbKhachHangMouseClicked
+
+    private void btThemKhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btThemKhachHangActionPerformed
+        int them = JOptionPane.showConfirmDialog(this, "Bạn có muốn thêm ?", "thên", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if (them == JOptionPane.YES_OPTION) {
+            QuanLyKhachHang qlkh = getKhachHang();
+            String add = khs.add(qlkh);
+            JOptionPane.showMessageDialog(this, add);
+            lstKh = khs.getAll();
+            showTableKhachHang(lstKh);
+        } else if (them == JOptionPane.NO_OPTION) {
+            JOptionPane.showMessageDialog(this, "Bạn đã hủy thêm");
+        }
+    }//GEN-LAST:event_btThemKhachHangActionPerformed
+
+    private void btSuaKhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSuaKhachHangActionPerformed
+        int sua = JOptionPane.showConfirmDialog(this, "Bạn có muốn Sửa ?", "confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if (sua == JOptionPane.YES_OPTION) {
+            QuanLyKhachHang qlkh = getKhachHang();
+            String id = jlbId.getText();
+            String update = khs.update(qlkh, id);
+            JOptionPane.showMessageDialog(this, update);
+            lstKh = khs.getAll();
+            showTableKhachHang(lstKh);
+        } else if (sua == JOptionPane.NO_OPTION) {
+            JOptionPane.showMessageDialog(this, "Bạn đã hủy sửa");
+        }
+    }//GEN-LAST:event_btSuaKhachHangActionPerformed
+
+    private void btXoaKhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btXoaKhachHangActionPerformed
+        int xoa = JOptionPane.showConfirmDialog(this, "bạn có muốn xóa ?", "confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if (xoa == JOptionPane.YES_OPTION) {
+            String id = jlbIdKhachHang.getText();
+            String delete = khs.delete(id);
+            JOptionPane.showMessageDialog(this, delete);
+            lstKh = khs.getAll();
+            showTableKhachHang(lstKh);
+        } else if (xoa == JOptionPane.NO_OPTION) {
+            JOptionPane.showMessageDialog(this, "Bạn đã hủy xóa");
+        }
+    }//GEN-LAST:event_btXoaKhachHangActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        jlbIdKhachHang.setText("");
+        txtMaKhachHang.setText("");
+        txtTenKhachHang.setText("");
+        buttonGroup5.clearSelection();
+        jdcNgaySinhKhachHang.setDateFormatString("");
+        txtSoDienThoaiKhachHang.setText("");
+        txtDiaChiKhachHang.setText("");
+        cbbKhachHang.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton14ActionPerformed
     private QuanLyNhanVien getNhanVien() {
         QuanLyNhanVien qlnv = new QuanLyNhanVien();
         qlnv.setMa(txtMaNhanVien.getText());
@@ -4587,14 +4746,17 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private javax.swing.JButton btNhanVien;
     private javax.swing.JButton btSanPham;
     private javax.swing.JButton btSua;
+    private javax.swing.JButton btSuaKhachHang;
     private javax.swing.JButton btSuaThuocTinh;
     private javax.swing.JButton btThem;
+    private javax.swing.JButton btThemKhachHang;
     private javax.swing.JButton btThemNhanVien;
     private javax.swing.JButton btThemThuocTinh;
     private javax.swing.JButton btThoat;
     private javax.swing.JButton btThongKe;
     private javax.swing.JButton btTimKiem;
     private javax.swing.JButton btXoa;
+    private javax.swing.JButton btXoaKhachHang;
     private javax.swing.JButton btXoaThuocTinh;
     private javax.swing.JButton btnGuiHang;
     private javax.swing.JButton btnHuyHoaDon;
@@ -4607,6 +4769,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.JComboBox<String> cbbChucVuNhanVien;
     private javax.swing.JComboBox<String> cbbCtspChatLieu;
     private javax.swing.JComboBox<String> cbbCtspDongSanPham;
@@ -4625,9 +4788,6 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbbTrangThaiNhanVien;
     private javax.swing.JComboBox<String> cbbTrangThaiSp;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
@@ -4791,14 +4951,13 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel jTienThua;
     private javax.swing.JLabel jTienThuaGiaoHang;
     private javax.swing.JLabel jTongTien;
     private javax.swing.JLabel jTongTienGiaoHang;
-    private com.toedter.calendar.JDateChooser jdcNgaySinh;
+    private com.toedter.calendar.JDateChooser jdcNgaySinhKhachHang;
     private com.toedter.calendar.JDateChooser jdcNgaySinhNhanVien;
     private javax.swing.JLabel jlbAnhNhanVien;
     private javax.swing.JLabel jlbCtspHinhAnh;
@@ -4837,6 +4996,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdoTatCa;
     private javax.swing.JTabbedPane tab;
     private javax.swing.JTable tbChiTietSanPham;
+    private javax.swing.JTable tbKhachHang;
     private javax.swing.JTable tbQlSanPham;
     private javax.swing.JTable tbQuanLyNhanVien;
     private javax.swing.JTable tbThuocTinh;
@@ -4865,7 +5025,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private javax.swing.JTextField txtNgayTaoGiaoHang;
     private javax.swing.JTextField txtSDT;
     private javax.swing.JTextField txtSDTGiaoHang;
-    private javax.swing.JTextField txtSoDienThoai;
+    private javax.swing.JTextField txtSoDienThoaiKhachHang;
     private javax.swing.JTextField txtSoDienThoaiNhanVien;
     private javax.swing.JTextField txtTenKH;
     private javax.swing.JTextField txtTenKHGiaoHang;

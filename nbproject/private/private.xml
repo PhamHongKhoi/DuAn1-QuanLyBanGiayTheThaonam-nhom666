@@ -3,17 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/Iplm/ChiTietSanPhamServiceIplm.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/IKhachHangService.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Utilities/SQLServerConnection.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmChaoMoiNguoi.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmDasBoard.java</file>
-            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/IChiTietSanPham.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyChiTietSanPham.java</file>
-            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyKhachHang.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/ChiTietSanPham.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/IChiTietSanPhamService.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/Iplm/ChiTietSanPhamServiceIplm.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/Iplm/KhachHangRespositoryIplm.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/IChiTietSanPham.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyKhachHang.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/Iplm/KhachHangService.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/KhachHang.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/Iplm/ChiTietSanPhamRespository.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/IKhachHangRespository.java</file>
         </group>
     </open-files>
 </project-private>
