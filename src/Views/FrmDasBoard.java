@@ -3451,6 +3451,27 @@ public class FrmDasBoard extends javax.swing.JFrame {
             TBHoaDon.clearSelection();
             listHD = hoaDonService.getAllByTrangThai(trangThai);
             showDataTableHD(listHD);
+            
+            btnThanhToan.setEnabled(true);
+            btnHuyHoaDon.setEnabled(true);
+            txtMaHD.setEnabled(true);
+            txtMaNV.setEnabled(true);
+            txtNgayTao.setEnabled(true);
+            txtTienKhachDua.setEnabled(true);
+            txtMaNV.setEnabled(true);
+            txtSDT.setEnabled(true);
+            txtTenKH.setEnabled(true);
+            txtMaHDGiaoHang.setEnabled(true);
+            txtMaNVGiaoHang.setEnabled(true);
+            txtNgayTaoGiaoHang.setEnabled(true);
+            txtTienKhachDuaGiaoHang.setEnabled(true);
+            txtMaNVGiaoHang.setEnabled(true);
+            txtSDTGiaoHang.setEnabled(true);
+            txtTenKHGiaoHang.setEnabled(true);
+            txtDiaChi.setEnabled(true);
+            txtDiaChi.setEnabled(true);
+            txtDiaChiGiaoHang.setEnabled(true);
+            txtTienShip.setEnabled(true);
         }
     }//GEN-LAST:event_rdoChoThanhToanMouseClicked
 
@@ -3611,6 +3632,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         dtmGH.setRowCount(0);
         TBHoaDon.setRowSelectionInterval(0, 0);
         
+        //tb hoa don
         int row = TBHoaDon.getSelectedRow();
         txtMaHD.setText((String) TBHoaDon.getModel().getValueAt(row, 2));
         txtMaNV.setText((String) TBHoaDon.getModel().getValueAt(row, 4));
@@ -4048,15 +4070,16 @@ public class FrmDasBoard extends javax.swing.JFrame {
                 Point point = mouseEvent.getPoint();
                 //lấy row được click double
                 int row = table.rowAtPoint(point);
-                if (mouseEvent.getClickCount() == 2) {
-//                    btnTaoHoaDon.doClick();
+                if (mouseEvent.getClickCount() == 2 && table.isRowSelected(row)) {
+                    
                     ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
 
                     int rowHD = TBHoaDon.getSelectedRow();
                     int rowSP = TBSanPham.getSelectedRow();
-
-                    //show hinh anh
-                    String hinhAnh = (String) TBSanPham.getModel().getValueAt(row, 9);
+                    if (TBHoaDon.isRowSelected(rowHD)==false) {
+                        btnTaoHoaDon.doClick();
+                    }else{
+                        String hinhAnh = (String) TBSanPham.getModel().getValueAt(row, 9);
                     lblHinhAnhBH.setText("");
                     ImageIcon imgIcon = new ImageIcon(getClass().getResource("/image/" + hinhAnh));
                     Image img = imgIcon.getImage();
@@ -4089,6 +4112,10 @@ public class FrmDasBoard extends javax.swing.JFrame {
                     listDssp = danhSAchSanPhamService.getAll();
                     showDataTableDSSP(listDssp);
                     showTongTien();
+                    }
+                    
+                    //show hinh anh
+                    
 
                 } else {
                     String hinhAnh = (String) TBSanPham.getModel().getValueAt(row, 9);
