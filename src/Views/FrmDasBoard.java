@@ -84,7 +84,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     ImageIcon sanPham = new ImageIcon("img/sanpham.png");
     ImageIcon anhDaiDien = new ImageIcon("img/anhdaidien.png");
     CardLayout cardLayout = new CardLayout();
-
+    
     private ArrayList<DanhSachSanPhamResponse> listDssp = new ArrayList<>();
     private ArrayList<ChiTietHoaDon> listCTHD = new ArrayList<>();
     private ArrayList<HoaDonResponse> listHD = new ArrayList<>();
@@ -103,7 +103,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private IThuongHieuRService thuongHieuRService = new ThuongHieuRService();
     private IKichCoRService kichCoRService = new KichCoRService();
     private IDongSPRService dongSPRService = new DongSPRService();
-
+    
     private DefaultTableModel dtmSP = new DefaultTableModel();
     private List<QuanLySanPham> lstQLSp = new ArrayList<>();
     private SanPhamServiceIplm spsi = new SanPhamServiceIplm();
@@ -139,7 +139,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     List<QuanLyChiTietSanPham> lstCtSp = new ArrayList<>();
     ChiTietSanPhamServiceIplm ctspI = new ChiTietSanPhamServiceIplm();
     DefaultTableModel dtmChiTietSp = new DefaultTableModel();
-
+    
     DefaultComboBoxModel dcbbCtspNSX = new DefaultComboBoxModel();
     DefaultComboBoxModel dcbbCtspKieuDang = new DefaultComboBoxModel();
     DefaultComboBoxModel dcbbSanPham = new DefaultComboBoxModel();
@@ -148,7 +148,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     DefaultComboBoxModel dcbbMauSac = new DefaultComboBoxModel();
     DefaultComboBoxModel dcbbChatLieu = new DefaultComboBoxModel();
     DefaultComboBoxModel dcbbDongSp = new DefaultComboBoxModel<>();
-
+    
     public FrmDasBoard() {
         initComponents();
         setLocationRelativeTo(null);
@@ -175,12 +175,12 @@ public class FrmDasBoard extends javax.swing.JFrame {
         showComBoxMaSp();
         cbbThuocTinhSanPham.setModel(dcbbThuocTinh);
         showComBoxThuocTinh();
-
+        
         listDssp = danhSAchSanPhamService.getAll();
         showDataTableDSSP(listDssp);
         listHD = hoaDonService.getAll();
         showDataTableHD(listHD);
-
+        
         listThuongHieuResponses = thuongHieuRService.getAll();
         listKichCoRResponses = kichCoRService.getAll();
         listDongSPRResponses = dongSPRService.getAll();
@@ -196,67 +196,67 @@ public class FrmDasBoard extends javax.swing.JFrame {
         for (DongSPRResponse listDSP : listDongSPRResponses) {
             dcbmDSP.addElement(listDSP.getTenDongSP());
         }
-
+        
         TBHoaDon.removeColumn(TBHoaDon.getColumnModel().getColumn(1));
         TBGioHang.removeColumn(TBGioHang.getColumnModel().getColumn(1));
         TBSanPham.removeColumn(TBSanPham.getColumnModel().getColumn(1));
         btnRefresh.doClick();
-
+        
         showChoThanhToan();
-
+        
         tbQuanLyNhanVien.setModel(dtmNhanVien);
         cbbChucVuNhanVien.setModel(dcbbChucVuNhanVien);
         cbbTrangThaiNhanVien.setModel(dcbbTrangThaiNhanVien);
         String[] nv = {"Id", "Mã", "Tên", "Giới tính", "Ngày sinh", "Dịa chỉ", "SDT", "Chức vụ", "Trạng thái", "Tên tk", "Mật khẩu", "Hình ảnh"};
         dtmNhanVien.setColumnIdentifiers(nv);
-
+        
         lstQlNhanVien = nvs.getAll();
         showTableNhanVien(lstQlNhanVien);
-
+        
         showComBoxCvNhanVien();
         showComBoxTrangThaiNhanVien();
-
+        
         tbChiTietSanPham.setModel(dtmChiTietSp);
         String[] ctsp = {"Id", "Mô tả", "Số lượng tồn", "Giá nhập", "Giá bán", "Năm bán hàng", "Hình ảnh", "Dòng sản phẩm", "Nhà sản xuất", "Kiểu dáng", "Kích cỡ", "Chất liệu", "Màu sắc", "Sản phẩm", "Thương hiệu", "Qr code"};
         dtmChiTietSp.setColumnIdentifiers(ctsp);
-
+        
         lstCtSp = ctspI.getAll();
         showTableChiTietSp(lstCtSp);
-
+        
         cbbCtspNhaSanXuat.setModel(dcbbCtspNSX);
         lstNhaSanXuat = nsxi.getAll();
         showComBoxCtspNsx(lstNhaSanXuat);
-
+        
         cbbCtspKieuDang.setModel(dcbbCtspKieuDang);
         lstKieuDang = kdi.getAll();
         showComBoxCtspKieuDang(lstKieuDang);
-
+        
         cbbCtspSanPham.setModel(dcbbSanPham);
         lstQLSp = spsi.getAll();
         showComBoxCtspSanPham(lstQLSp);
-
+        
         cbbCtspKichCo.setModel(dcbbKichCo);
         lstKichCo = kcsi.getAll();
         showComBoxCtspKichCo(lstKichCo);
-
+        
         cbbCtspThuongHieu.setModel(dcbbThuongHieu);
         lstThuongHieu = thsi.getAll();
         showComBoxCtspThuongHieu(lstThuongHieu);
-
+        
         cbbCtspMauSac.setModel(dcbbMauSac);
         lstMauSac = msi.getAll();
         showComBoxCtspMauSac(lstMauSac);
-
+        
         cbbCtspDongSanPham.setModel(dcbbDongSp);
         lstDongSanPham = dspi.getAll();
         showComBoxCtspDongSp(lstDongSanPham);
-
+        
         cbbCtspChatLieu.setModel(dcbbChatLieu);
         lstChatLieu = cls.getAll();
         showComBoxCtspChatLieu(lstChatLieu);
-
+        
     }
-
+    
     private void fillCtSp(int row) {
         QuanLyChiTietSanPham qlCtSp = lstCtSp.get(row);
         jlbCtspId.setText(qlCtSp.getIdCtsp());
@@ -269,7 +269,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         if (qlCtSp.getHinhAnh().equalsIgnoreCase("No avt")) {
             jlbCtspHinhAnh.setText("NO AVT");
             jlbCtspHinhAnh.setText(null);
-
+            
         } else {
             jlbCtspHinhAnh.setText("");
             ImageIcon imageIcon = new ImageIcon(getClass().getResource("/image/" + qlCtSp.getHinhAnh()));
@@ -277,7 +277,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             img.getScaledInstance(jlbCtspHinhAnh.getWidth(), jlbCtspHinhAnh.getY(), 0);
             jlbCtspHinhAnh.setIcon(imageIcon);
         }
-
+        
         cbbCtspDongSanPham.setSelectedItem(qlCtSp.getIdDongSp());
         cbbCtspNhaSanXuat.setSelectedItem(qlCtSp.getIdNSX());
         cbbCtspKieuDang.setSelectedItem(qlCtSp.getIdKieuDang());
@@ -286,9 +286,9 @@ public class FrmDasBoard extends javax.swing.JFrame {
         cbbCtspMauSac.setSelectedItem(qlCtSp.getIdMauSac());
         cbbCtspSanPham.setSelectedItem(qlCtSp.getIdSanPham());
         cbbCtspThuongHieu.setSelectedItem(qlCtSp.getIdThuongHieu());
-
+        
     }
-
+    
     private QuanLyChiTietSanPham getQlChiTietSp() {
         String moTa = jtpCtspMoTa.getText();
         int soLuongTon = Integer.valueOf(txtCtspSoLuongTon.getText());
@@ -321,95 +321,95 @@ public class FrmDasBoard extends javax.swing.JFrame {
         QuanLyChiTietSanPham qlChiTietSp = new QuanLyChiTietSanPham(null, moTa, soLuongTon, giaNhap, giaBan, namBh, hinhAnh, null, dongSp.getId(), nsx.getId(), kd.getId(), kc.getId(), cl.getId(), ms.getId(), sp.getId(), th.getId(), null);
         return qlChiTietSp;
     }
-
+    
     private void showComBoxCtspKieuDang(List<QuanLyKieuDang> lstKieuDang) {
         for (QuanLyKieuDang ql : lstKieuDang) {
             dcbbCtspKieuDang.addElement(ql.getTen());
         }
     }
-
+    
     private void showComBoxCtspSanPham(List<QuanLySanPham> lstSanPham) {
         for (QuanLySanPham ql : lstSanPham) {
             dcbbSanPham.addElement(ql.getTen());
         }
     }
-
+    
     private void showComBoxCtspKichCo(List<QuanLyKichco> lstKichCo) {
         for (QuanLyKichco ql : lstKichCo) {
             dcbbKichCo.addElement(ql.getTen());
         }
     }
-
+    
     private void showComBoxCtspThuongHieu(List<QuanLyThuongHieu> lstThuongHieu) {
         for (QuanLyThuongHieu ql : lstThuongHieu) {
             dcbbThuongHieu.addElement(ql.getTen());
         }
     }
-
+    
     private void showComBoxCtspMauSac(List<QuanLyMauSac> lstMauSac) {
         for (QuanLyMauSac ql : lstMauSac) {
             dcbbMauSac.addElement(ql.getTen());
         }
     }
-
+    
     private void showComBoxCtspChatLieu(List<QuanLyChatLieu> lstChatLieu) {
         for (QuanLyChatLieu ql : lstChatLieu) {
             dcbbChatLieu.addElement(ql.getDaChinh());
         }
     }
-
+    
     private void showComBoxCtspDongSp(List<QuanLyDongSanPham> lstDongSp) {
         for (QuanLyDongSanPham ql : lstDongSp) {
             dcbbDongSp.addElement(ql.getTen());
         }
     }
-
+    
     private void showComBoxCtspNsx(List<QuanLyNhaSanXuat> lstNhaSanXuat) {
         for (QuanLyNhaSanXuat ql : lstNhaSanXuat) {
             dcbbCtspNSX.addElement(ql.getTen());
         }
     }
-
+    
     private void showTableChiTietSp(List<QuanLyChiTietSanPham> lstQlCtSp) {
         dtmChiTietSp.setRowCount(0);
         for (QuanLyChiTietSanPham ql : lstQlCtSp) {
             dtmChiTietSp.addRow(ql.arriveChiTietSp());
         }
     }
-
+    
     private void showComBoxThuocTinh() {
         for (int i = 0; i < 2; i++) {
             lstThuocTinh.add(String.valueOf(i));
         }
-
+        
         for (String s : lstThuocTinh) {
             dcbbThuocTinh.addElement(s);
         }
     }
-
+    
     private void showComBoxMaSp() {
         for (QuanLySanPham ql : lstQLSp) {
             dcbbMaSanPham.addElement(ql.getMa());
         }
     }
-
+    
     private void showComBoxTrangThaiSp() {
         for (int i = 0; i < 2; i++) {
             lstTrangThaiSp.add(String.valueOf(i));
         }
-
+        
         for (String s : lstTrangThaiSp) {
             dcbbTrangThai.addElement(s);
         }
     }
-
+    
     private void showTableSanPham(List<QuanLySanPham> lstQlSp) {
         dtmSP.setRowCount(0);
         for (QuanLySanPham ql : lstQlSp) {
             dtmSP.addRow(ql.arriveData());
         }
     }
-
+    
     private void showDataTableDSSP(ArrayList<DanhSachSanPhamResponse> lists) {
         dtmDSSP = (DefaultTableModel) TBSanPham.getModel();
         int i = 1;
@@ -420,7 +420,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             });
         }
     }
-
+    
     private void showDataTableCTHD(ArrayList<ChiTietHoaDon> lists) {
         dtmGH = (DefaultTableModel) TBGioHang.getModel();
         int i = 1;
@@ -431,7 +431,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             });
         }
     }
-
+    
     private void showTongTien() {
         int sum = 0;
         int tienShiptt = Integer.valueOf(txtTienShip.getText());
@@ -446,9 +446,9 @@ public class FrmDasBoard extends javax.swing.JFrame {
         NumberFormat format = NumberFormat.getCurrencyInstance(locale);
         jTongTien.setText(format.format(sum));
         jTongTienGiaoHang.setText(format.format(sum + tienShiptt));
-
+        
     }
-
+    
     private void showDataTableHD(ArrayList<HoaDonResponse> lists) {
         dtmHD = (DefaultTableModel) TBHoaDon.getModel();
         int i = 1;
@@ -460,7 +460,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             });
         }
     }
-
+    
     private void checkTTKH() {
         if (txtDiaChi.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Ban chua nhap dia chi");
@@ -475,7 +475,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             return;
         }
     }
-
+    
     private void checkTTKHGiaoHang() {
         if (txtDiaChiGiaoHang.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Ban chua nhap dia chi");
@@ -494,7 +494,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             return;
         }
     }
-
+    
     private void capNhapSoLuongTonKho() {
         int rowGH = TBGioHang.getSelectedRow();
         String idSelected = (String) TBGioHang.getModel().getValueAt(rowGH, 1);
@@ -513,7 +513,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         listDssp = danhSAchSanPhamService.getAll();
         showDataTableDSSP(listDssp);
     }
-
+    
     private void showChoThanhToan() {
         rdoChoThanhToan.setSelected(true);
         if (rdoChoThanhToan.isSelected() == true) {
@@ -3510,6 +3510,12 @@ public class FrmDasBoard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Bạn chưa chọn hoá đơn");
             JOptionPane.showMessageDialog(this, "Bạn chưa nhập số tiền khách hàng thanh toán");
         }
+        rdoDaThanhToan.setSelected(true);
+        int trangThai = 1;
+        TBHoaDon.clearSelection();
+        listHD = hoaDonService.getAllByTrangThai(trangThai);
+        showDataTableHD(listHD);
+        
 
     }//GEN-LAST:event_btnThanhToanActionPerformed
 
@@ -3603,6 +3609,9 @@ public class FrmDasBoard extends javax.swing.JFrame {
         showDataTableHD(listHD);
         showChoThanhToan();
         dtmGH.setRowCount(0);
+        TBHoaDon.setRowSelectionInterval(0, 0);
+        
+
     }//GEN-LAST:event_btnTaoHoaDonActionPerformed
 
     private void btAllSanPhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAllSanPhamActionPerformed
@@ -3668,7 +3677,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         tbThuocTinh.setModel(dtmThuocTinh);
         String[] ms = {"Id", "Mã", "Tên", "Trang thái"};
         dtmThuocTinh.setColumnIdentifiers(ms);
-
+        
         lstKichCo = kcsi.getAll();
         showtableKichCo(lstKichCo);
     }//GEN-LAST:event_rdbtKichCoActionPerformed
@@ -3684,11 +3693,11 @@ public class FrmDasBoard extends javax.swing.JFrame {
         txtDaPhu.setEnabled(true);
         txtDeNgoai.setEnabled(true);
         txtLopLotTrong.setEnabled(true);
-
+        
         tbThuocTinh.setModel(dtmThuocTinh);
         String[] chatLieu = {"Id", "Mã", "Da chính", "Da phụ", "Đế ngoài", "Lớp lót trong", "Trạng thái"};
         dtmThuocTinh.setColumnIdentifiers(chatLieu);
-
+        
         lstChatLieu = cls.getAll();
         showTableChatLieu(lstChatLieu);
     }//GEN-LAST:event_rdbtChatLieuActionPerformed
@@ -3698,7 +3707,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             dtmThuocTinh.addRow(ql.todata());
         }
     }
-
+    
 
     private void rdbtDongSanPhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtDongSanPhamActionPerformed
         txtDaChinh.setEnabled(false);
@@ -3709,7 +3718,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         tbThuocTinh.setModel(dtmThuocTinh);
         String[] ms = {"Id", "Mã", "Tên", "Trang thái"};
         dtmThuocTinh.setColumnIdentifiers(ms);
-
+        
         lstDongSanPham = dspi.getAll();
         showtableDongSanPham(lstDongSanPham);
     }//GEN-LAST:event_rdbtDongSanPhamActionPerformed
@@ -3728,7 +3737,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         tbThuocTinh.setModel(dtmThuocTinh);
         String[] ms = {"Id", "Mã", "Tên", "Trang thái"};
         dtmThuocTinh.setColumnIdentifiers(ms);
-
+        
         lstKieuDang = kdi.getAll();
         showtableKieuDang(lstKieuDang);
     }//GEN-LAST:event_rdbtKieuDangActionPerformed
@@ -3747,7 +3756,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         tbThuocTinh.setModel(dtmThuocTinh);
         String[] ms = {"Id", "Mã", "Tên", "Trang thái"};
         dtmThuocTinh.setColumnIdentifiers(ms);
-
+        
         lstThuongHieu = thsi.getAll();
         showtableThuongHieu(lstThuongHieu);
     }//GEN-LAST:event_rdbtThuongHieuActionPerformed
@@ -3766,7 +3775,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         tbThuocTinh.setModel(dtmThuocTinh);
         String[] ms = {"Id", "Mã", "Tên", "Trang thái"};
         dtmThuocTinh.setColumnIdentifiers(ms);
-
+        
         lstNhaSanXuat = nsxi.getAll();
         showTableNhaSanXuat(lstNhaSanXuat);
     }//GEN-LAST:event_rdbtNhaSanXuatActionPerformed
@@ -3785,7 +3794,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         tbThuocTinh.setModel(dtmThuocTinh);
         String[] ms = {"Id", "Mã", "Tên", "Trang thái"};
         dtmThuocTinh.setColumnIdentifiers(ms);
-
+        
         lstMauSac = msi.getAll();
         showTableMauSac(lstMauSac);
 
@@ -3843,7 +3852,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         txtTenThuocTinh.setText(qlDongSp.getTen());
         cbbThuocTinhSanPham.setSelectedIndex(qlDongSp.getTrangThai());
     }
-
+    
     private void fillKichCo(int row) {
         QuanLyKichco qlk = lstKichCo.get(row);
         txtJd.setText(qlk.getId());
@@ -3851,7 +3860,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         txtTenThuocTinh.setText(qlk.getTen());
         cbbThuocTinhSanPham.setSelectedIndex(qlk.getTrangThai());
     }
-
+    
     private void fillKieuDang(int row) {
         QuanLyKieuDang qlkd = lstKieuDang.get(row);
         txtJd.setText(qlkd.getId());
@@ -3859,7 +3868,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         txtTenThuocTinh.setText(qlkd.getTen());
         cbbThuocTinhSanPham.setSelectedIndex(qlkd.getTrangThai());
     }
-
+    
     private void fillThuongHieu(int row) {
         QuanLyThuongHieu qlth = lstThuongHieu.get(row);
         txtJd.setText(qlth.getId());
@@ -3867,7 +3876,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         txtTenThuocTinh.setText(qlth.getTen());
         cbbThuocTinhSanPham.setSelectedIndex(qlth.getTrangThai());
     }
-
+    
     private void fillNhaSX(int row) {
         QuanLyNhaSanXuat qlnsx = lstNhaSanXuat.get(row);
         txtJd.setText(qlnsx.getId());
@@ -3875,7 +3884,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         txtTenThuocTinh.setText(qlnsx.getTen());
         cbbThuocTinhSanPham.setSelectedIndex(qlnsx.getTrangThai());
     }
-
+    
     private void fillMauSac(int row) {
         QuanLyMauSac qlms = lstMauSac.get(row);
         txtJd.setText(qlms.getId());
@@ -3883,7 +3892,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         txtTenThuocTinh.setText(qlms.getTen());
         cbbThuocTinhSanPham.setSelectedIndex(qlms.getTrangThai());
     }
-
+    
     private void fillChatLieu(int row) {
         QuanLyChatLieu qlcl = lstChatLieu.get(row);
         txtJd.setText(qlcl.getId());
@@ -4031,9 +4040,9 @@ public class FrmDasBoard extends javax.swing.JFrame {
                 //lấy row được click double
                 int row = table.rowAtPoint(point);
                 if (mouseEvent.getClickCount() == 2) {
-
+//                    btnTaoHoaDon.doClick();
                     ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
-
+                    
                     int rowHD = TBHoaDon.getSelectedRow();
                     int rowSP = TBSanPham.getSelectedRow();
 
@@ -4056,9 +4065,9 @@ public class FrmDasBoard extends javax.swing.JFrame {
                     chiTietHoaDon.setTenSP((String) TBSanPham.getModel().getValueAt(row, 3));
                     chiTietHoaDon.setSoLuong(Integer.valueOf(input));
                     chiTietHoaDon.setDonGia((float) TBSanPham.getModel().getValueAt(row, 8));
-
+                    
                     ChiTietHoaDon chiTietHoaDonAdd = new ChiTietHoaDon((String) TBHoaDon.getModel().getValueAt(rowHD, 1), (String) TBSanPham.getModel().getValueAt(row, 1), Integer.valueOf(input), (float) TBSanPham.getModel().getValueAt(row, 8));
-
+                    
                     chiTietHoaDonService.saveHoaDonCT(chiTietHoaDonAdd);
                     listCTHD.add(chiTietHoaDon);
                     showDataTableCTHD(listCTHD);
@@ -4071,7 +4080,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
                     listDssp = danhSAchSanPhamService.getAll();
                     showDataTableDSSP(listDssp);
                     showTongTien();
-
+                    
                 } else {
                     String hinhAnh = (String) TBSanPham.getModel().getValueAt(row, 9);
                     lblHinhAnhBH.setText("");
@@ -4079,12 +4088,13 @@ public class FrmDasBoard extends javax.swing.JFrame {
                     Image img = imgIcon.getImage();
                     img.getScaledInstance(lblHinhAnhBH.getWidth(), lblHinhAnhBH.getY(), 0);
                     lblHinhAnhBH.setIcon(imgIcon);
-
+                    
                 }
-
+                
             }
-
+            
         });
+        
 
     }//GEN-LAST:event_TBSanPhamMouseClicked
 
@@ -4382,7 +4392,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         }
         return qlnv;
     }
-
+    
     private void fillDataNhanVien(int row) {
         QuanLyNhanVien qlnv = lstQlNhanVien.get(row);
         jlbIdNhanVien.setText(qlnv.getId());
@@ -4405,7 +4415,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         if (qlnv.getHinhAnh().equalsIgnoreCase("No avt")) {
             jlbAnhNhanVien.setText("NO AVT");
             jlbAnhNhanVien.setText(null);
-
+            
         } else {
             jlbAnhNhanVien.setText("");
             ImageIcon imageIcon = new ImageIcon(getClass().getResource("/image/" + qlnv.getHinhAnh()));
@@ -4414,91 +4424,91 @@ public class FrmDasBoard extends javax.swing.JFrame {
             jlbAnhNhanVien.setIcon(imageIcon);
         }
     }
-
+    
     private void showComBoxCvNhanVien() {
         for (int i = 0; i < 3; i++) {
             lstCvNhanVien.add(String.valueOf(i));
         }
-
+        
         for (String s : lstCvNhanVien) {
             dcbbChucVuNhanVien.addElement(s);
         }
     }
-
+    
     private void showComBoxTrangThaiNhanVien() {
         for (int i = 0; i < 4; i++) {
             lstTrangThaiNhanVien.add(String.valueOf(i));
         }
-
+        
         for (String s : lstTrangThaiNhanVien) {
             dcbbTrangThaiNhanVien.addElement(s);
         }
     }
-
+    
     private void showTableNhanVien(List<QuanLyNhanVien> lst) {
         dtmNhanVien.setRowCount(0);
         for (QuanLyNhanVien ql : lst) {
             dtmNhanVien.addRow(ql.arriveNhanVien());
         }
     }
-
+    
     private QuanLyDongSanPham getDongSanPham() {
         String ma = txtMaThuocTinh.getText();
         String ten = txtTenThuocTinh.getText();
         int trangThai = cbbThuocTinhSanPham.getSelectedIndex();
-
+        
         QuanLyDongSanPham ql = new QuanLyDongSanPham(null, ma, ten, trangThai);
-
+        
         return ql;
     }
-
+    
     private QuanLyKichco getKichCo() {
         String ma = txtMaThuocTinh.getText();
         String ten = txtTenThuocTinh.getText();
         int trangThai = cbbThuocTinhSanPham.getSelectedIndex();
-
+        
         QuanLyKichco ql = new QuanLyKichco(null, ma, ten, trangThai);
-
+        
         return ql;
     }
-
+    
     private QuanLyKieuDang getKieuDang() {
         String ma = txtMaThuocTinh.getText();
         String ten = txtTenThuocTinh.getText();
         int trangThai = cbbThuocTinhSanPham.getSelectedIndex();
-
+        
         QuanLyKieuDang ql = new QuanLyKieuDang(null, ma, ten, trangThai);
         return ql;
     }
-
+    
     private QuanLyThuongHieu getThuongHieu() {
         String ma = txtMaThuocTinh.getText();
         String ten = txtTenThuocTinh.getText();
         int trangThai = cbbThuocTinhSanPham.getSelectedIndex();
-
+        
         QuanLyThuongHieu ql = new QuanLyThuongHieu(null, ma, ten, trangThai);
         return ql;
     }
-
+    
     private QuanLyNhaSanXuat getNhaSanXuat() {
         String ma = txtMaThuocTinh.getText();
         String ten = txtTenThuocTinh.getText();
         int trangThai = cbbThuocTinhSanPham.getSelectedIndex();
-
+        
         QuanLyNhaSanXuat ql = new QuanLyNhaSanXuat(null, ma, ten, trangThai);
         return ql;
     }
-
+    
     private QuanLyMauSac getMauSac() {
         String ma = txtMaThuocTinh.getText();
         String ten = txtTenThuocTinh.getText();
         int trangThai = cbbThuocTinhSanPham.getSelectedIndex();
-
+        
         QuanLyMauSac ql = new QuanLyMauSac(null, ma, ten, trangThai);
-
+        
         return ql;
     }
-
+    
     private QuanLyChatLieu getChatLieu() {
         String ma = txtMaThuocTinh.getText();
         int trangThai = cbbThuocTinhSanPham.getSelectedIndex();
@@ -4506,27 +4516,27 @@ public class FrmDasBoard extends javax.swing.JFrame {
         String daPhu = txtDaPhu.getText();
         String deNgoai = txtDeNgoai.getText();
         String lopLotTrong = txtLopLotTrong.getText();
-
+        
         QuanLyChatLieu ql = new QuanLyChatLieu(null, ma, daChinh, daPhu, deNgoai, lopLotTrong, trangThai);
         return ql;
     }
-
+    
     private void showTableMauSac(List<QuanLyMauSac> lst) {
         dtmThuocTinh.setRowCount(0);
         for (QuanLyMauSac ql : lst) {
             dtmThuocTinh.addRow(ql.arriveData());
         }
     }
-
+    
     private QuanLySanPham getSanPham() {
         String ma = txtMaSanPham.getText();
         String ten = txtTenSanPham.getText();
         int trangThai = cbbTrangThaiSp.getSelectedIndex();
-
+        
         QuanLySanPham qlsp = new QuanLySanPham(null, ma, ten, trangThai);
         return qlsp;
     }
-
+    
     private void fillTableSanPham(int row) {
         QuanLySanPham qlsp = lstQLSp.get(row);
         jlbId.setText(qlsp.getId());
