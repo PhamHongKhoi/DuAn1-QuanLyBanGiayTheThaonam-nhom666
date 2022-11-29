@@ -100,6 +100,6 @@ public class QuanLyKhachHang {
     }
 
     public Object[] ArriveKhachHang() {
-        return new Object[]{id, ma, ten, gioiTinh, ngaySinh, soDienThoai, diaChi, trangThai};
+        return new Object[]{id, ma, ten, gioiTinh == 0 ? "Nam" : "Nữ", ngaySinh, soDienThoai, diaChi, trangThai};
     }
 }

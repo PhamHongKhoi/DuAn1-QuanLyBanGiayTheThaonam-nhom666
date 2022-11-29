@@ -198,8 +198,8 @@ public class FrmDasBoard extends javax.swing.JFrame {
         }
 
         TBHoaDon.removeColumn(TBHoaDon.getColumnModel().getColumn(1));
-        TBGioHang.removeColumn(TBGioHang.getColumnModel().getColumn(1));
-        TBSanPham.removeColumn(TBSanPham.getColumnModel().getColumn(1));
+//        TBGioHang.removeColumn(TBGioHang.getColumnModel().getColumn(1));
+//        TBSanPham.removeColumn(TBSanPham.getColumnModel().getColumn(1));
         btnRefresh.doClick();
 
         showChoThanhToan();
@@ -844,7 +844,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
         jSplitPane1.setDividerSize(0);
 
-        jPanel1.setBackground(new java.awt.Color(0, 255, 51));
+        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
 
         btBanHang.setBackground(new java.awt.Color(51, 255, 0));
         btBanHang.setText("Bán Hàng");
@@ -2051,7 +2051,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbbCtspNhaSanXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlbCtspHinhAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlbCtspHinhAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(72, 72, 72)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(247, 247, 247))
@@ -2110,7 +2110,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jlbCtspHinhAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -2220,12 +2220,12 @@ public class FrmDasBoard extends javax.swing.JFrame {
                 .addGroup(jpbSanPhamChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1547, Short.MAX_VALUE)
                     .addGroup(jpbSanPhamChiTietLayout.createSequentialGroup()
                         .addGroup(jpbSanPhamChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel27)
-                            .addComponent(jLabel26))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1547, Short.MAX_VALUE))
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel27))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jpbSanPhamChiTietLayout.setVerticalGroup(
@@ -2234,14 +2234,14 @@ public class FrmDasBoard extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Sản Phẩm Chi Tiết", jpbSanPhamChiTiet);
@@ -2699,12 +2699,10 @@ public class FrmDasBoard extends javax.swing.JFrame {
                         .addGroup(pnlCard4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel86))
+                        .addGap(43, 43, 43)
                         .addGroup(pnlCard4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(pnlCard4Layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCard4Layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
                                 .addComponent(jLabel100)
                                 .addGap(421, 421, 421))))
                     .addGroup(pnlCard4Layout.createSequentialGroup()
@@ -3477,7 +3475,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         try {
             //them thong tin khach hang vao hoa don
             int rowHD = TBHoaDon.getSelectedRow();
-            String idSelected = TBHoaDon.getValueAt(rowHD, 1).toString();
+            String idSelected = TBHoaDon.getModel().getValueAt(rowHD, 1).toString();
             String tenkh = txtTenKH.getText();
             String sdt = txtSDT.getText();
             String diaChi = txtDiaChi.getText();
@@ -3501,7 +3499,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             jTienThua.setText(format.format(tienThua));
 
             //cap nhat trang thai 
-            String maSelected = TBHoaDon.getValueAt(rowHD, 2).toString();
+            String maSelected = TBHoaDon.getModel().getValueAt(rowHD, 2).toString();
             int trangThai = 1;
             HoaDon hoaDon = new HoaDon(trangThai);
             JOptionPane.showMessageDialog(this, hoaDonService.updateThanhToan(hoaDon, maSelected));
