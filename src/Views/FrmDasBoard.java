@@ -2419,7 +2419,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
                 .addGroup(jpbSanPhamChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1550, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1554, Short.MAX_VALUE)
                     .addGroup(jpbSanPhamChiTietLayout.createSequentialGroup()
                         .addGroup(jpbSanPhamChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel26)
@@ -3319,7 +3319,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 1370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3819,7 +3819,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             .addGroup(jPanel39Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel108.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -3847,7 +3847,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
                 .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton21))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel109.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -4684,9 +4684,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
                     int rowHD = TBHoaDon.getSelectedRow();
                     int rowSP = TBSanPham.getSelectedRow();
-                    if (TBHoaDon.isRowSelected(rowHD) == false) {
-                        btnTaoHoaDon.doClick();
-                    } else {
+                     try {
                         String hinhAnh = (String) TBSanPham.getModel().getValueAt(row, 9);
                         lblHinhAnhBH.setText("");
                         ImageIcon imgIcon = new ImageIcon(getClass().getResource("/image/" + hinhAnh));
@@ -4720,7 +4718,13 @@ public class FrmDasBoard extends javax.swing.JFrame {
                         listDssp = danhSAchSanPhamService.getAll();
                         showDataTableDSSP(listDssp);
                         showTongTien();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(rootPane, "Ban chua chon hoa don");
+                        return;
                     }
+                        
+                    
 
                     //show hinh anh
                 } else {
