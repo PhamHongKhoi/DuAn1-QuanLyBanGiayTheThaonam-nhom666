@@ -21,4 +21,6 @@ public interface INhaSanXuatService {
 
     String update(QuanLyNhaSanXuat cv, String id);
 
+    String themNhanhNsx(QuanLyNhaSanXuat qlNsx);
+
 }

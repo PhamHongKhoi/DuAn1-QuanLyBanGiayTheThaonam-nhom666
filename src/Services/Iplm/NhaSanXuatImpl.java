@@ -64,4 +64,15 @@ public class NhaSanXuatImpl implements INhaSanXuatService {
         }
     }
 
+    @Override
+    public String themNhanhNsx(QuanLyNhaSanXuat qlNsx) {
+        NhaSanXuat nsx = new NhaSanXuat(qlNsx.getTen());
+        boolean themNhanh = rp.themNhanhNsx(nsx);
+        if (themNhanh == true) {
+            return "Thêm thành công ";
+        } else {
+            return "Thêm thất bại";
+        }
+    }
+
 }

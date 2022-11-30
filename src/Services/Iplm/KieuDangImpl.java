@@ -6,16 +6,16 @@ package Services.Iplm;
 
 import DomainModel.KieuDang;
 import Repository.Iplm.KieuDangRepository;
-import Services.KieuDangService;
 import ViewModels.QuanLyKieuDang;
 import java.util.ArrayList;
 import java.util.List;
+import Services.IKieuDangService;
 
 /**
  *
  * @author admin
  */
-public class KieuDangImpl implements KieuDangService {
+public class KieuDangImpl implements IKieuDangService {
 
     private KieuDangRepository rp = new KieuDangRepository();
 
@@ -64,6 +64,17 @@ public class KieuDangImpl implements KieuDangService {
             return "sửa thành công";
         } else {
             return " sửa thất bại ";
+        }
+    }
+
+    @Override
+    public String themNhanhKd(QuanLyKieuDang kd) {
+        KieuDang tmKd = new KieuDang(kd.getTen());
+        boolean themNhanh = rp.themNhanhKd(tmKd);
+        if (themNhanh == true) {
+            return "Thêm thành công";
+        } else {
+            return "Thêm thất bại";
         }
     }
 

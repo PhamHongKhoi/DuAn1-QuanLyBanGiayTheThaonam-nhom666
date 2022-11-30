@@ -97,4 +97,19 @@ public class NhaSanXuatRepository implements INhaSanXuat {
         return check > 0;
     }
 
+    @Override
+    public boolean themNhanhNsx(NhaSanXuat nsx) {
+        String query = "INSERT INTO [dbo].[NSX]\n"
+                + "           ([Ten])\n"
+                + "     VALUES(?)";
+        int check = 0;
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            ps.setObject(1, nsx.getTen());
+            check = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
+
 }

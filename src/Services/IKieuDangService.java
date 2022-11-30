@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author admin
  */
-public interface KieuDangService {
+public interface IKieuDangService {
 
     List<QuanLyKieuDang> getAll();
 
@@ -21,4 +21,5 @@ public interface KieuDangService {
 
     String update(QuanLyKieuDang cv, String id);
 
+    String themNhanhKd(QuanLyKieuDang kd);
 }

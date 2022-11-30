@@ -99,4 +99,19 @@ public class KieuDangRepository implements IKieuDang {
 
     }
 
+    @Override
+    public boolean themNhanhKd(KieuDang kd) {
+        String query = "INSERT INTO [dbo].[KieuDang]\n"
+                + "           ([Ten])\n"
+                + "     VALUES(?)";
+        int check = 0;
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            ps.setObject(1, kd.getTen());
+            check = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
+
 }

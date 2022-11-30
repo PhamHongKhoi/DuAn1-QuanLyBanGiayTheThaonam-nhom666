@@ -1935,16 +1935,18 @@
                                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="cbbCtspSanPham" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="cbbCtspThuongHieu" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="cbbCtspNhaSanXuat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="btThemNhanhSanPham" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
-                                                  <Component id="btThemNhanhThuongHieu" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="btThemNhanhNhaSanXuat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="cbbCtspSanPham" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="cbbCtspThuongHieu" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="cbbCtspNhaSanXuat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="btThemNhanhThuongHieu" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="btThemNhanhNhaSanXuat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -2182,6 +2184,9 @@
                                   </StringArray>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cbbCtspKieuDangMouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
@@ -2197,6 +2202,9 @@
                                   </StringArray>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cbbCtspNhaSanXuatMouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
@@ -2328,10 +2336,16 @@
                             <Component class="javax.swing.JButton" name="btThemNhanhMauSac">
                             </Component>
                             <Component class="javax.swing.JButton" name="btThemNhanhKieuDang">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btThemNhanhKieuDangActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="btThemNhanhChatLieu">
                             </Component>
                             <Component class="javax.swing.JButton" name="btThemNhanhNhaSanXuat">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btThemNhanhNhaSanXuatActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -3496,12 +3510,9 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtTenTk" pref="159" max="32767" attributes="0"/>
-                                          <Component id="jpfMatKhau" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtTenTk" pref="159" max="32767" attributes="0"/>
+                                      <Component id="jpfMatKhau" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="cbbTrangThaiNhanVien" min="-2" pref="86" max="-2" attributes="0"/>

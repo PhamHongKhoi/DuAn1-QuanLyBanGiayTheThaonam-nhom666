@@ -4,7 +4,6 @@
  */
 package Repository;
 
-
 import DomainModel.KieuDang;
 import java.util.List;
 
@@ -22,4 +21,5 @@ public interface IKieuDang {
 
     boolean update(KieuDang cv, String id);
 
+    boolean themNhanhKd(KieuDang kd);
 }

@@ -21,5 +21,6 @@ public interface INhaSanXuat {
     boolean delete(String id);
 
     boolean update(NhaSanXuat cv, String id);
-    
+
+    boolean themNhanhNsx(NhaSanXuat nsx);
 }
