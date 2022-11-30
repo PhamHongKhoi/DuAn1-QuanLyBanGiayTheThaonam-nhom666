@@ -18,6 +18,10 @@ public class QuanLyKichco {
     public QuanLyKichco() {
     }
 
+    public QuanLyKichco(String ten) {
+        this.ten = ten;
+    }
+
     public QuanLyKichco(String id, String ma, String ten, int trangThai) {
         this.id = id;
         this.ma = ma;

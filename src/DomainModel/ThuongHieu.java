@@ -18,6 +18,10 @@ public class ThuongHieu {
     public ThuongHieu() {
     }
 
+    public ThuongHieu(String ten) {
+        this.ten = ten;
+    }
+
     public ThuongHieu(String id, String ma, String ten, int trangThai) {
         this.id = id;
         this.ma = ma;

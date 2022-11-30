@@ -18,6 +18,10 @@ public class KichCo {
     public KichCo() {
     }
 
+    public KichCo(String ten) {
+        this.ten = ten;
+    }
+
     public KichCo(String id, String ma, String ten, int trangThai) {
         this.id = id;
         this.ma = ma;

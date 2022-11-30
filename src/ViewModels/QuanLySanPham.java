@@ -18,6 +18,11 @@ public class QuanLySanPham {
     public QuanLySanPham() {
     }
 
+    public QuanLySanPham(String ma, String ten) {
+        this.ma = ma;
+        this.ten = ten;
+    }
+
     public QuanLySanPham(String id, String ma, String ten, int trangThai) {
         this.id = id;
         this.ma = ma;

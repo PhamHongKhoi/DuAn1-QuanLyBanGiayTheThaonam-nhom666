@@ -18,6 +18,10 @@ public class MauSac {
     public MauSac() {
     }
 
+    public MauSac(String ten) {
+        this.ten = ten;
+    }
+
     public MauSac(String id, String ma, String ten, int trangThai) {
         this.id = id;
         this.ma = ma;

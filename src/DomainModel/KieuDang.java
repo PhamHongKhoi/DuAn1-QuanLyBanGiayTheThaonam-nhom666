@@ -18,6 +18,10 @@ public class KieuDang {
     public KieuDang() {
     }
 
+    public KieuDang(String ten) {
+        this.ten = ten;
+    }
+
     public KieuDang(String id, String ma, String ten, int trangThai) {
         this.id = id;
         this.ma = ma;

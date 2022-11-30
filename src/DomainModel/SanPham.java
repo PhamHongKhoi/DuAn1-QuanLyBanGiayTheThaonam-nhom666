@@ -18,6 +18,11 @@ public class SanPham {
     public SanPham() {
     }
 
+    public SanPham(String ma, String ten) {
+        this.ma = ma;
+        this.ten = ten;
+    }
+
     public SanPham(String id, String ma, String ten, int trangThai) {
         this.id = id;
         this.ma = ma;

@@ -18,6 +18,10 @@ public class DongSanPham {
     public DongSanPham() {
     }
 
+    public DongSanPham(String ten) {
+        this.ten = ten;
+    }
+
     public DongSanPham(String id, String ma, String ten, int trangThai) {
         this.id = id;
         this.ma = ma;

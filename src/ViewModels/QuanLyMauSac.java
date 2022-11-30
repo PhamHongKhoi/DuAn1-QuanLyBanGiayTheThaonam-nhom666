@@ -18,6 +18,10 @@ public class QuanLyMauSac {
     public QuanLyMauSac() {
     }
 
+    public QuanLyMauSac(String ten) {
+        this.ten = ten;
+    }
+
     public QuanLyMauSac(String id, String ma, String ten, int trangThai) {
         this.id = id;
         this.ma = ma;

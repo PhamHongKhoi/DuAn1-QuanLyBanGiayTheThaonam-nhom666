@@ -8,9 +8,9 @@ package DomainModel;
  *
  * @author admin
  */
-public class ChatLieu{
+public class ChatLieu {
 
-     private String id;
+    private String id;
     private String ma;
     private String daChinh;
     private String daPhu;
@@ -19,6 +19,10 @@ public class ChatLieu{
     private int trangThai;
 
     public ChatLieu() {
+    }
+
+    public ChatLieu(String daChinh) {
+        this.daChinh = daChinh;
     }
 
     public ChatLieu(String id, String ma, String daChinh, String daPhu, String deNgoai, String lopLotTrong, int trangThai) {
@@ -86,8 +90,5 @@ public class ChatLieu{
     public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
-
-    
-    
 
 }
