@@ -20,4 +20,6 @@ public interface IDongSanPham {
     boolean delete(String id);
 
     boolean update(DongSanPham cv, String id);
+
+    boolean themNhanh(DongSanPham dsp);
 }

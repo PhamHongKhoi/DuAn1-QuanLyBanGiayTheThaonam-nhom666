@@ -20,4 +20,6 @@ public interface IChatLieuService {
     String delete(String ma);
 
     String update(QuanLyChatLieu cv, String ma);
+
+    String themNhanhChatLieu(QuanLyChatLieu qlCt);
 }

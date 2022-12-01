@@ -39,8 +39,10 @@ public class FrmThemNhanhKieuDang extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         txtThemNhanhKieuDang = new javax.swing.JTextField();
         btThem = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 0));
 
@@ -51,19 +53,26 @@ public class FrmThemNhanhKieuDang extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Hủy");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(89, 89, 89)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(txtThemNhanhKieuDang, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(btThem)))
-                .addContainerGap(106, Short.MAX_VALUE))
+                        .addComponent(btThem)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addComponent(txtThemNhanhKieuDang, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -71,7 +80,9 @@ public class FrmThemNhanhKieuDang extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addComponent(txtThemNhanhKieuDang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btThem)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btThem)
+                    .addComponent(jButton1))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
 
@@ -79,7 +90,7 @@ public class FrmThemNhanhKieuDang extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 351, Short.MAX_VALUE)
+            .addGap(0, 410, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -107,6 +118,10 @@ public class FrmThemNhanhKieuDang extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btThemActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private QuanLyKieuDang getKieuDang() {
         String ten = txtThemNhanhKieuDang.getText();
@@ -153,6 +168,7 @@ public class FrmThemNhanhKieuDang extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btThem;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtThemNhanhKieuDang;
     // End of variables declaration//GEN-END:variables

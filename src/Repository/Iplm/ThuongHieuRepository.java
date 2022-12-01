@@ -96,4 +96,19 @@ public class ThuongHieuRepository implements IThuongHieu {
 
     }
 
+    @Override
+    public boolean themNhanh(ThuongHieu th) {
+        String query = "INSERT INTO [dbo].[ThuongHieu]\n"
+                + "           ([Ten])\n"
+                + "     VALUES(?)";
+        int check = 0;
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            ps.setObject(1, th.getTen());
+            check = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
+
 }

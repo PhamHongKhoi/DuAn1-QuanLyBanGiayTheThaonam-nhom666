@@ -96,4 +96,19 @@ public class KichCorepository implements IKichCo {
 
     }
 
+    @Override
+    public boolean themNhanh(KichCo kc) {
+        String query = "INSERT INTO [dbo].[KichCo]\n"
+                + "           ([Ten])\n"
+                + "     VALUES(?)";
+        int check = 0;
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            ps.setObject(1, kc.getTen());
+            check = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
+
 }

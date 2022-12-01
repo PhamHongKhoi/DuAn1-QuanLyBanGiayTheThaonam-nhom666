@@ -111,4 +111,19 @@ public class ChatLieurepository implements IChatLieuRespository {
 
     }
 
+    @Override
+    public boolean themNhanhChatLieu(ChatLieu cl) {
+        String query = "INSERT INTO [dbo].[ChatLieu]\n"
+                + "           ([DaChinh])\n"
+                + "     VALUES(?)";
+        int check = 0;
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            ps.setObject(1, cl.getDaChinh());
+            check = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
+
 }

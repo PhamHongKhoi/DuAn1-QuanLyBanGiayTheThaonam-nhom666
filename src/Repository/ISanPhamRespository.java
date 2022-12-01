@@ -24,4 +24,6 @@ public interface ISanPhamRespository {
     List<SanPham> getMaSp(String ma);
 
     List<SanPham> getTenSp(String ten);
+
+    boolean themNhanh(SanPham sp);
 }

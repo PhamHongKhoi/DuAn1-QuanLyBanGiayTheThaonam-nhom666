@@ -22,4 +22,6 @@ public interface IThuongHieuService {
 
     String update(QuanLyThuongHieu cv, String id);
 
+    String themNhanh(QuanLyThuongHieu qlTh);
+
 }

@@ -24,4 +24,6 @@ public interface ISanPhamService {
     List<QuanLySanPham> getMaSp(String ma);
 
     List<QuanLySanPham> getTenSp(String ten);
+
+    String themNhanh(QuanLySanPham qlSp);
 }

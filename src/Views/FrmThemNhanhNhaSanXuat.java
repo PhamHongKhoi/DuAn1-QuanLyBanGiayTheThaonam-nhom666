@@ -40,6 +40,7 @@ public class FrmThemNhanhNhaSanXuat extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         txtThemNhanhNsx = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -56,25 +57,37 @@ public class FrmThemNhanhNhaSanXuat extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Hủy");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(txtThemNhanhNsx, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(72, 72, 72)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2))
+                    .addComponent(txtThemNhanhNsx, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(66, 66, 66)
+                .addComponent(txtThemNhanhNsx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtThemNhanhNsx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap(62, Short.MAX_VALUE))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -105,6 +118,10 @@ public class FrmThemNhanhNhaSanXuat extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private QuanLyNhaSanXuat getNhaSanXuat() {
         String ten = txtThemNhanhNsx.getText();
@@ -150,20 +167,10 @@ public class FrmThemNhanhNhaSanXuat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btSuaKhachHang;
-    private javax.swing.JButton btSuaKhachHang1;
-    private javax.swing.JButton btThemKhachHang;
-    private javax.swing.JButton btThemKhachHang1;
-    private javax.swing.JButton btXoaKhachHang;
-    private javax.swing.JButton btXoaKhachHang1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel30;
-    private javax.swing.JPanel jPanel31;
     private javax.swing.JTextField txtThemNhanhNsx;
     // End of variables declaration//GEN-END:variables
 }

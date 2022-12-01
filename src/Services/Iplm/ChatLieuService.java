@@ -67,4 +67,15 @@ public class ChatLieuService implements IChatLieuService {
         }
     }
 
+    @Override
+    public String themNhanhChatLieu(QuanLyChatLieu qlCt) {
+        ChatLieu cl = new ChatLieu(qlCt.getDaChinh());
+        boolean themNhanh = rp.themNhanhChatLieu(cl);
+        if (themNhanh == true) {
+            return "Thêm thành công";
+        } else {
+            return "Thêm thất bại";
+        }
+    }
+
 }

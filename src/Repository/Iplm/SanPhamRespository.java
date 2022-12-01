@@ -124,4 +124,21 @@ public class SanPhamRespository implements ISanPhamRespository {
         return null;
     }
 
+    @Override
+    public boolean themNhanh(SanPham sp) {
+        String query = "INSERT INTO [dbo].[SanPham]\n"
+                + "           ([Ma]\n"
+                + "           ,[Ten])\n"
+                + "     VALUES (?,?)";
+        int check = 0;
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            ps.setObject(1, sp.getMa());
+            ps.setObject(2, sp.getTen());
+            check = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
+
 }

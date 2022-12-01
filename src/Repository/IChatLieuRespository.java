@@ -20,4 +20,6 @@ public interface IChatLieuRespository {
     boolean delete(String ma);
 
     boolean update(ChatLieu cv, String ma);
+
+    boolean themNhanhChatLieu(ChatLieu cl);
 }

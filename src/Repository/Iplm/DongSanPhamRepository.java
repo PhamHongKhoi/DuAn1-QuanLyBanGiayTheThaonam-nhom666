@@ -99,4 +99,19 @@ public class DongSanPhamRepository implements IDongSanPham {
 
     }
 
+    @Override
+    public boolean themNhanh(DongSanPham dsp) {
+        String query = "INSERT INTO [dbo].[DongSP]\n"
+                + "           ([Ten])\n"
+                + "     VALUES(?)";
+        int check = 0;
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            ps.setObject(1, dsp.getTen());
+            check = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
+
 }

@@ -20,4 +20,6 @@ public interface IMauSac {
     boolean update(MauSac ms, String id);
 
     boolean delete(String id);
+
+    boolean themNhanh(MauSac ms);
 }

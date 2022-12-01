@@ -10,50 +10,75 @@
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLySanPham.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyChiTietSanPham.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/KichCo.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/IKichCo.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/Iplm/DongSanPhamRepository.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/Iplm/ChiTietSanPhamServiceIplm.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/Iplm/NhaSanXuatImpl.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/IChatLieuService.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/IChiTietSanPham.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmThemNhanhKichCo.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/KichCoRResponse.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/IKhachHangRespository.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/NhanVien.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/IKhachHangService.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/Iplm/ThuongHieuRepository.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/login.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmChaoMoiNguoi.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmThemNhanhThuongHieu.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/Iplm/DongSanPhamImpl.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmThemNhanhNhaSanXuat.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/IKieuDang.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/IKieuDangService.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/Iplm/KhachHangRespositoryIplm.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyThuongHieu.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/Iplm/mauSacRespository.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/IChatLieuRespository.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/IMauSac.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/Iplm/KhachHangService.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/MauSac.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyDongSanPham.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/INhaSanXuatService.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/IMauSacService.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/IThuongHieu.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmThemNhanhMauSac.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/Iplm/KieuDangRepository.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Utilities/SQLServerConnection.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/Iplm/KichCoServiceImpl.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmDasBoard.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmThemNhanhDongSp.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/Iplm/KichCorepository.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyKieuDang.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmThemNhanhKieuDang.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/IDongSPRRepository.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/ChiTietSanPham.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/Iplm/ChatLieurepository.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/Iplm/NhaSanXuatRepository.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/IDongSanPhamService.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/IThuongHieuService.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/IDongSanPham.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/IDongSPRService.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/Iplm/ChatLieuService.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyChatLieu.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/NhaSanXuat.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/ISanPhamRespository.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/Iplm/ChiTietSanPhamRespository.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/Iplm/KieuDangImpl.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/Iplm/SanPhamRespository.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/IChiTietSanPhamService.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/DongSanPham.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Repository/INhaSanXuat.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyMauSac.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/Iplm/MauSacServiceIplm.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/SanPham.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmThongTinCaNhan.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/KieuDang.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmThemNhanhSanPham.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/Iplm/ThuongHieuServiceImpl.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyKhachHang.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyNhanVien.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/KhachHang.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Views/FrmThemNhanhChatLieu.java</file>
+            <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/IKichCoService.java</file>
         </group>
     </open-files>
 </project-private>

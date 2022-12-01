@@ -23,6 +23,10 @@ public class QuanLyChatLieu {
     public QuanLyChatLieu() {
     }
 
+    public QuanLyChatLieu(String daChinh) {
+        this.daChinh = daChinh;
+    }
+
     public QuanLyChatLieu(String id, String ma, String daChinh, String daPhu, String deNgoai, String lopLotTrong, int trangThai) {
         this.id = id;
         this.ma = ma;

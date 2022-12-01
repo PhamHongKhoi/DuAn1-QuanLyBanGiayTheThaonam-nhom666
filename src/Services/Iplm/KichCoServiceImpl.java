@@ -67,4 +67,15 @@ public class KichCoServiceImpl implements IKichCoService {
         }
     }
 
+    @Override
+    public String themNhanh(QuanLyKichco kc) {
+        KichCo tmKc = new KichCo(kc.getTen());
+        boolean themNhanh = rp.themNhanh(tmKc);
+        if (themNhanh == true) {
+            return "Thêm thành công";
+        } else {
+            return "Thêm thất bại";
+        }
+    }
+
 }

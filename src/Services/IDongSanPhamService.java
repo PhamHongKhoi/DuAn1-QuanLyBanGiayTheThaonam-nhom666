@@ -11,7 +11,7 @@ import ViewModels.QuanLyDongSanPham;
  *
  * @author admin
  */
-public interface DongSanPhamService {
+public interface IDongSanPhamService {
 
     List<QuanLyDongSanPham> getAll();
 
@@ -20,4 +20,6 @@ public interface DongSanPhamService {
     String delete(String id);
 
     String update(QuanLyDongSanPham cv, String id);
+
+    String themNhanh(QuanLyDongSanPham qlDsp);
 }

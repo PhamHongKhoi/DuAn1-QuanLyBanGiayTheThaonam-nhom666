@@ -20,4 +20,6 @@ public interface IKichCoService {
     String delete(String id);
 
     String update(QuanLyKichco cv, String id);
+
+    String themNhanh(QuanLyKichco kc);
 }

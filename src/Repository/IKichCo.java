@@ -20,4 +20,6 @@ public interface IKichCo {
     boolean delete(String id);
 
     boolean update(KichCo cv, String id);
+
+    boolean themNhanh(KichCo kc);
 }

@@ -89,4 +89,19 @@ public class mauSacRespository implements IMauSac {
         return check > 0;
     }
 
+    @Override
+    public boolean themNhanh(MauSac ms) {
+        String query = "INSERT INTO [dbo].[MauSac]\n"
+                + "           ([Ten])\n"
+                + "     VALUES(?)";
+        int check = 0;
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            ps.setObject(1, ms.getTen());
+            check = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
+
 }

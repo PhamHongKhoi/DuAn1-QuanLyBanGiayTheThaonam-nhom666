@@ -65,4 +65,15 @@ public class MauSacServiceIplm implements IMauSacService {
         }
     }
 
+    @Override
+    public String themNhanh(QuanLyMauSac qlMs) {
+        MauSac ms = new MauSac(qlMs.getTen());
+        boolean themNhanh = msr.themNhanh(ms);
+        if (themNhanh == true) {
+            return "Thêm thành công";
+        } else {
+            return "Thêm thất bại";
+        }
+    }
+
 }

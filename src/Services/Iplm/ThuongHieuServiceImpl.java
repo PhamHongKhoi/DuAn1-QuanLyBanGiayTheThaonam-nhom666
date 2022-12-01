@@ -67,4 +67,15 @@ public class ThuongHieuServiceImpl implements IThuongHieuService {
         }
     }
 
+    @Override
+    public String themNhanh(QuanLyThuongHieu qlTh) {
+        ThuongHieu th = new ThuongHieu(qlTh.getTen());
+        boolean themNhanh = rp.themNhanh(th);
+        if (themNhanh == true) {
+            return "Thêm thành công";
+        } else {
+            return "Thêm thất bại";
+        }
+    }
+
 }

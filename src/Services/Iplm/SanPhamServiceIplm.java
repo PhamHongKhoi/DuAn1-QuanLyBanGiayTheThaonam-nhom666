@@ -16,9 +16,9 @@ import java.util.List;
  * @author Asus
  */
 public class SanPhamServiceIplm implements ISanPhamService {
-    
+
     SanPhamRespository spr = new SanPhamRespository();
-    
+
     @Override
     public List<QuanLySanPham> getAll() {
         List<SanPham> sp = spr.getAll();
@@ -29,7 +29,7 @@ public class SanPhamServiceIplm implements ISanPhamService {
         }
         return lstSp;
     }
-    
+
     @Override
     public String add(QuanLySanPham qlsp) {
         SanPham sp = new SanPham(null, qlsp.getMa(), qlsp.getTen(), qlsp.getTrangThai());
@@ -40,7 +40,7 @@ public class SanPhamServiceIplm implements ISanPhamService {
             return "Thêm thất bại";
         }
     }
-    
+
     @Override
     public String update(QuanLySanPham qlsp, String id) {
         SanPham sp = new SanPham(null, qlsp.getMa(), qlsp.getTen(), qlsp.getTrangThai());
@@ -51,7 +51,7 @@ public class SanPhamServiceIplm implements ISanPhamService {
             return "Sửa thất bại";
         }
     }
-    
+
     @Override
     public String delete(String id) {
         boolean delete = spr.delete(id);
@@ -61,7 +61,7 @@ public class SanPhamServiceIplm implements ISanPhamService {
             return "Xóa thất bại";
         }
     }
-    
+
     @Override
     public List<QuanLySanPham> getMaSp(String ma) {
         List<SanPham> sp = spr.getMaSp(ma);
@@ -72,7 +72,7 @@ public class SanPhamServiceIplm implements ISanPhamService {
         }
         return lstSp;
     }
-    
+
     @Override
     public List<QuanLySanPham> getTenSp(String ten) {
         List<SanPham> sp = spr.getTenSp(ten);
@@ -83,5 +83,16 @@ public class SanPhamServiceIplm implements ISanPhamService {
         }
         return lstSp;
     }
-    
+
+    @Override
+    public String themNhanh(QuanLySanPham qlSp) {
+        SanPham sp = new SanPham(qlSp.getMa(), qlSp.getTen());
+        boolean themNhanh = spr.themNhanh(sp);
+        if (themNhanh == true) {
+            return "Thêm thành công";
+        } else {
+            return "Thêm thất bại";
+        }
+    }
+
 }

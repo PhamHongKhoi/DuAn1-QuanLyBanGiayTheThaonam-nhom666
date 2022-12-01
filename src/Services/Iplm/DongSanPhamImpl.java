@@ -6,16 +6,16 @@ package Services.Iplm;
 
 import DomainModel.DongSanPham;
 import Repository.Iplm.DongSanPhamRepository;
-import Services.DongSanPhamService;
 import ViewModels.QuanLyDongSanPham;
 import java.util.ArrayList;
 import java.util.List;
+import Services.IDongSanPhamService;
 
 /**
  *
  * @author admin
  */
-public class DongSanPhamImpl implements DongSanPhamService {
+public class DongSanPhamImpl implements IDongSanPhamService {
 
     private DongSanPhamRepository rp = new DongSanPhamRepository();
 
@@ -64,6 +64,17 @@ public class DongSanPhamImpl implements DongSanPhamService {
             return "sửa thành công";
         } else {
             return "sửa thất bại ";
+        }
+    }
+
+    @Override
+    public String themNhanh(QuanLyDongSanPham qlDsp) {
+        DongSanPham dsp = new DongSanPham(qlDsp.getTen());
+        boolean themNhanh = rp.themNhanh(dsp);
+        if (themNhanh == true) {
+            return "Thêm thành công";
+        } else {
+            return "Thêm thất bại";
         }
     }
 

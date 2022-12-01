@@ -20,4 +20,6 @@ public interface IMauSacService {
     String update(QuanLyMauSac qlms, String id);
 
     String delete(String id);
+
+    String themNhanh(QuanLyMauSac qlMs);
 }
