@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -94,14 +95,17 @@ public class HoaDonRepository implements IHoaDonRepository {
     }
 
     public ArrayList<HoaDonResponse> getTTKhByID(String id) {
-        String query = "SELECT TenKhachHang, SDT, DiaChi\n"
-                + "FROM     dbo.HoaDon Where Id = ?";
+        String query = "SELECT [NgayThanhToan]\n"
+                + "      ,[TenKhachHang]\n"
+                + "      ,[SDT]\n"
+                + "      ,[DiaChi]\n"
+                + "  FROM [dbo].[HoaDon] Where Id = ?";
         ArrayList<HoaDonResponse> list = new ArrayList<>();
         try (Connection con = SQLServerConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query);) {
             ps.setObject(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                HoaDonResponse hoaDonResponse = new HoaDonResponse(rs.getString(1), rs.getString(2), rs.getString(3));
+                HoaDonResponse hoaDonResponse = new HoaDonResponse(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
                 list.add(hoaDonResponse);
             }
             return list;
@@ -131,14 +135,20 @@ public class HoaDonRepository implements IHoaDonRepository {
     }
 
     public ArrayList<HoaDonResponse> getTTKhGiaoHangByID(String id) {
-        String query = "SELECT TienShip, TenKhachHang, SDT, DiaChi\n"
-                + "FROM     dbo.HoaDon Where Id = ?";
+        String query = "SELECT [NgayShip]\n"
+                + "      ,[NgayNhan]\n"
+                + "      ,[NgayHenKhach]\n"
+                + "      ,[TienShip]\n"
+                + "      ,[TenKhachHang]\n"
+                + "      ,[SDT]\n"
+                + "      ,[DiaChi]\n"
+                + "  FROM [dbo].[HoaDon] Where Id = ?";
         ArrayList<HoaDonResponse> list = new ArrayList<>();
         try (Connection con = SQLServerConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query);) {
             ps.setObject(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                HoaDonResponse hoaDonResponse = new HoaDonResponse(rs.getFloat(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                HoaDonResponse hoaDonResponse = new HoaDonResponse(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getFloat(4), rs.getString(5), rs.getString(6), rs.getString(7));
                 list.add(hoaDonResponse);
             }
             return list;
@@ -162,6 +172,66 @@ public class HoaDonRepository implements IHoaDonRepository {
             ps.setObject(3, hoaDon.getSdt());
             ps.setObject(4, hoaDon.getDiaChi());
             ps.setObject(5, id);
+            check = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return check > 0;
+    }
+
+    public boolean updateNgayHenGiaoHang(HoaDon hoaDon, String id) {
+        String query = "UPDATE [dbo].[HoaDon]\n"
+                + "   SET [NgayHenKhach] = ?"
+                + " WHERE Id = ?";
+        int check = 0;
+        try (Connection con = SQLServerConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query);) {
+            ps.setObject(1, hoaDon.getNgayHenKhach());
+            ps.setObject(2, id);
+            check = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return check > 0;
+    }
+
+    public boolean updateNgayShip(HoaDon hoaDon, String id) {
+        String query = "UPDATE [dbo].[HoaDon]\n"
+                + "   SET [NgayShip] = ?"
+                + " WHERE Id = ?";
+        int check = 0;
+        try (Connection con = SQLServerConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query);) {
+            ps.setObject(1, hoaDon.getNgayShip());
+            ps.setObject(2, id);
+            check = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return check > 0;
+    }
+
+    public boolean updateNgayKhachNhan(HoaDon hoaDon, String id) {
+        String query = "UPDATE [dbo].[HoaDon]\n"
+                + "   SET [NgayNhan] = ?"
+                + " WHERE Id = ?";
+        int check = 0;
+        try (Connection con = SQLServerConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query);) {
+            ps.setObject(1, hoaDon.getNgayNhan());
+            ps.setObject(2, id);
+            check = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return check > 0;
+    }
+
+    public boolean updateNgayThanhToan(HoaDon hoaDon, String id) {
+        String query = "UPDATE [dbo].[HoaDon]\n"
+                + "   SET [NgayThanhToan] = ?"
+                + " WHERE Id = ?";
+        int check = 0;
+        try (Connection con = SQLServerConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query);) {
+            ps.setObject(1, hoaDon.getNgayThanhToan());
+            ps.setObject(2, id);
             check = ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -4,6 +4,8 @@
  */
 package ViewModels;
 
+import java.util.Date;
+
 /**
  *
  * @author Admin
@@ -16,6 +18,7 @@ public class HoaDonResponse {
     private String ngayThanhToan;
     private String ngayShip;
     private String ngayNhan;
+    private Date ngayHenKhach;
     private int trangThai;
     private float tienShip;
     private String tenNguoiNhan;
@@ -66,6 +69,33 @@ public class HoaDonResponse {
         this.tenNguoiNhan = tenNguoiNhan;
         this.sdt = sdt;
         this.diaChi = diaChi;
+    }
+
+    public HoaDonResponse(String ngayThanhToan, String tenNguoiNhan, String sdt, String diaChi) {
+        this.ngayThanhToan = ngayThanhToan;
+        this.tenNguoiNhan = tenNguoiNhan;
+        this.sdt = sdt;
+        this.diaChi = diaChi;
+    }
+
+    public HoaDonResponse(String ngayShip, String ngayNhan, Date ngayHenKhach, float tienShip, String tenNguoiNhan, String sdt, String diaChi) {
+        this.ngayShip = ngayShip;
+        this.ngayNhan = ngayNhan;
+        this.ngayHenKhach = ngayHenKhach;
+        this.tienShip = tienShip;
+        this.tenNguoiNhan = tenNguoiNhan;
+        this.sdt = sdt;
+        this.diaChi = diaChi;
+    }
+
+    
+
+    public Date getNgayHenKhach() {
+        return ngayHenKhach;
+    }
+
+    public void setNgayHenKhach(Date ngayHenKhach) {
+        this.ngayHenKhach = ngayHenKhach;
     }
 
     public float getTienShip() {

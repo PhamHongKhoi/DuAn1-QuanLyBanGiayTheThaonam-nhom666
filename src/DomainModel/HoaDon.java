@@ -15,9 +15,10 @@ public class HoaDon {
     private String id;
     private String maHD;
     private Date ngayTao;
-    private String ngayThanhToan;
-    private String ngayShip;
-    private String ngayNhan;
+    private Date ngayThanhToan;
+    private Date ngayShip;
+    private Date ngayNhan;
+    private Date ngayHenKhach;
     private int trangThai;
     private float tienShip;
     private String tenNguoiNhan;
@@ -28,19 +29,6 @@ public class HoaDon {
         this.maHD = maHD;
         this.ngayTao = ngayTao;
         this.trangThai = trangThai;
-    }
-
-    public HoaDon(String id, String maHD, Date ngayTao, String ngayThanhToan, String ngayShip, String ngayNhan, int trangThai, String tenNguoiNhan, String diaChi, String sdt) {
-        this.id = id;
-        this.maHD = maHD;
-        this.ngayTao = ngayTao;
-        this.ngayThanhToan = ngayThanhToan;
-        this.ngayShip = ngayShip;
-        this.ngayNhan = ngayNhan;
-        this.trangThai = trangThai;
-        this.tenNguoiNhan = tenNguoiNhan;
-        this.diaChi = diaChi;
-        this.sdt = sdt;
     }
 
     public HoaDon(int trangThai) {
@@ -70,6 +58,42 @@ public class HoaDon {
     }
 
     public HoaDon() {
+    }
+
+    public Date getNgayThanhToan() {
+        return ngayThanhToan;
+    }
+
+    public void setNgayThanhToan(Date ngayThanhToan) {
+        this.ngayThanhToan = ngayThanhToan;
+    }
+
+    public Date getNgayNhan() {
+        return ngayNhan;
+    }
+
+    public void setNgayNhan(Date ngayNhan) {
+        this.ngayNhan = ngayNhan;
+    }
+
+    public HoaDon(Date ngayHenKhach) {
+        this.ngayHenKhach = ngayHenKhach;
+    }
+
+    public Date getNgayShip() {
+        return ngayShip;
+    }
+
+    public void setNgayShip(Date ngayShip) {
+        this.ngayShip = ngayShip;
+    }
+
+    public Date getNgayHenKhach() {
+        return ngayHenKhach;
+    }
+
+    public void setNgayHenKhach(Date ngayHenKhach) {
+        this.ngayHenKhach = ngayHenKhach;
     }
 
     public float getTienShip() {
@@ -102,30 +126,6 @@ public class HoaDon {
 
     public void setNgayTao(Date ngayTao) {
         this.ngayTao = ngayTao;
-    }
-
-    public String getNgayThanhToan() {
-        return ngayThanhToan;
-    }
-
-    public void setNgayThanhToan(String ngayThanhToan) {
-        this.ngayThanhToan = ngayThanhToan;
-    }
-
-    public String getNgayShip() {
-        return ngayShip;
-    }
-
-    public void setNgayShip(String ngayShip) {
-        this.ngayShip = ngayShip;
-    }
-
-    public String getNgayNhan() {
-        return ngayNhan;
-    }
-
-    public void setNgayNhan(String ngayNhan) {
-        this.ngayNhan = ngayNhan;
     }
 
     public int getTrangThai() {

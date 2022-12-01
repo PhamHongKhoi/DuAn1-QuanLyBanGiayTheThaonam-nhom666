@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class HoaDonServiceIplm implements IHoaDonService {
+public class HoaDonService implements IHoaDonService {
 
     private HoaDonRepository hoaDonRepository = new HoaDonRepository();
 
@@ -71,6 +71,42 @@ public class HoaDonServiceIplm implements IHoaDonService {
             return "Đã thêm thông tin khách hàng";
         } else {
             return "Chưa thêm đc thông tin khách hàng";
+        }
+    }
+
+    @Override
+    public String updateNgayHenGiaoHang(HoaDon hoaDon, String id) {
+        if (hoaDonRepository.updateNgayHenGiaoHang(hoaDon, id)) {
+            return "Đã thêm thông tin ngày hẹn khách";
+        } else {
+            return "Chưa thêm đc thông tin ngày hẹn khách";
+        }
+    }
+
+    @Override
+    public String updateNgayShip(HoaDon hoaDon, String id) {
+        if (hoaDonRepository.updateNgayShip(hoaDon, id)) {
+            return "Đã thêm thông tin ngày Ship";
+        } else {
+            return "Chưa thêm đc thông tin ngày Ship";
+        }
+    }
+
+    @Override
+    public String updateNgayKhachNhan(HoaDon hoaDon, String id) {
+        if (hoaDonRepository.updateNgayKhachNhan(hoaDon, id)) {
+            return "Đã thêm thông tin ngày Nhan";
+        } else {
+            return "Chưa thêm đc thông tin ngày Nhan";
+        }
+    }
+
+    @Override
+    public String updateNgayThanhToan(HoaDon hoaDon, String id) {
+        if (hoaDonRepository.updateNgayThanhToan(hoaDon, id)) {
+            return "Đã thêm thông tin ngày Thanh Toán";
+        } else {
+            return "Chưa thêm đc thông tin ngày Thanh Toán";
         }
     }
 

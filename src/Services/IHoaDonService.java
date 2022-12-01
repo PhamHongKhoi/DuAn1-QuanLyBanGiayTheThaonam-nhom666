@@ -29,4 +29,12 @@ public interface IHoaDonService {
     ArrayList<HoaDonResponse> getTTKhGiaoHangByID(String id);
     
     String updateTTKHGiaoHang(HoaDon hoaDon, String id);
+    
+    String updateNgayHenGiaoHang(HoaDon hoaDon, String id);
+    
+    String updateNgayShip(HoaDon hoaDon, String id);
+    
+    String updateNgayKhachNhan(HoaDon hoaDon, String id);
+    
+    String updateNgayThanhToan(HoaDon hoaDon, String id);
 }

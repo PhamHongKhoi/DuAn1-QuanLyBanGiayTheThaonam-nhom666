@@ -29,4 +29,12 @@ public interface IHoaDonRepository {
     ArrayList<HoaDonResponse> getTTKhGiaoHangByID(String id);
     
     boolean updateTTKHGiaoHang(HoaDon hoaDon, String id);
+    
+    boolean updateNgayHenGiaoHang(HoaDon hoaDon, String id);
+    
+    boolean updateNgayShip(HoaDon hoaDon, String id);
+    
+    boolean updateNgayKhachNhan(HoaDon hoaDon, String id);
+    
+    boolean updateNgayThanhToan(HoaDon hoaDon, String id);
 }
