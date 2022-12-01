@@ -237,6 +237,9 @@ public class FrmDasBoard extends javax.swing.JFrame {
         txtNgayShip.setEnabled(false);
         txtNgayThanhToan.setEnabled(false);
         txtNgayNhan.setEnabled(false);
+        btnNgayHenKhach.setEnabled(true);
+        btnGuiHang.setEnabled(false);
+        btnThanhToan1.setEnabled(false);
 
         showChoThanhToan();
 
@@ -4950,6 +4953,10 @@ public class FrmDasBoard extends javax.swing.JFrame {
             txtDiaChi.setEditable(true);
             txtDiaChiGiaoHang.setEditable(true);
             txtTienShip.setEditable(true);
+            
+            btnNgayHenKhach.setEnabled(true);
+            btnGuiHang.setEnabled(false);
+            btnThanhToan1.setEnabled(false);
         } else {
             btnThanhToan.setEnabled(false);
             btnHuyHoaDon.setEnabled(false);
@@ -5458,6 +5465,10 @@ public class FrmDasBoard extends javax.swing.JFrame {
             float tienChuyen = 0;
             LoaiHinhTanhToan lhtt = new LoaiHinhTanhToan(idSelected, tenLHTT, tienMat, tienChuyen);
             JOptionPane.showMessageDialog(this, loaiHinhThanhToanService.saveLoaiHinhTT(lhtt));
+            
+            btnNgayHenKhach.setEnabled(true);
+            btnGuiHang.setEnabled(false);
+            btnThanhToan1.setEnabled(false);
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Bạn chưa chọn hoá đơn");
@@ -5495,6 +5506,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         checkTTKHGiaoHang();
         HoaDon hoaDonTTKHGH = new HoaDon(tienShip, tenkh, diaChi, sdt);
         JOptionPane.showMessageDialog(this, hoaDonService.updateTTKHGiaoHang(hoaDonTTKHGH, idSelected));
+        btnThanhToan1.setEnabled(true);
     }//GEN-LAST:event_btnGuiHangActionPerformed
 
     private void btnNgayHenKhachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNgayHenKhachActionPerformed
@@ -5505,6 +5517,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         System.out.println(idSelected);
         HoaDon hoaDonHenKH = new HoaDon(ngayHenKhach);
         JOptionPane.showMessageDialog(this, hoaDonService.updateNgayHenGiaoHang(hoaDonHenKH, idSelected));
+        btnGuiHang.setEnabled(true);
     }//GEN-LAST:event_btnNgayHenKhachActionPerformed
     private QuanLyNhanVien getNhanVien() {
         QuanLyNhanVien qlnv = new QuanLyNhanVien();
