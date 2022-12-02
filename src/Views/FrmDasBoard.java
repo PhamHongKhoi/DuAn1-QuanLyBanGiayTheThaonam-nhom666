@@ -11,6 +11,7 @@ import Services.IChiTietHoaDonService;
 import Services.IDanhSAchSanPhamService;
 import Services.IDongSPRService;
 import Services.IHoaDonService;
+import Services.IKhachHangRService;
 import Services.IKichCoRService;
 import Services.ILoaiHinhThanhToanService;
 import Services.IThuongHieuRService;
@@ -21,6 +22,7 @@ import Services.Iplm.DanhSachSanPhamService;
 import Services.Iplm.DongSPRService;
 import Services.Iplm.DongSanPhamImpl;
 import Services.Iplm.HoaDonService;
+import Services.Iplm.KhachHangRService;
 import Services.Iplm.KhachHangService;
 import Services.Iplm.KichCoRService;
 import Services.Iplm.KichCoServiceImpl;
@@ -35,6 +37,7 @@ import Services.Iplm.ThuongHieuServiceImpl;
 import ViewModels.DanhSachSanPhamResponse;
 import ViewModels.DongSPRResponse;
 import ViewModels.HoaDonResponse;
+import ViewModels.KhachHangResponse;
 import ViewModels.KichCoRResponse;
 import ViewModels.QuanLyChatLieu;
 import ViewModels.QuanLyChiTietSanPham;
@@ -118,6 +121,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private IKichCoRService kichCoRService = new KichCoRService();
     private IDongSPRService dongSPRService = new DongSPRService();
     private ILoaiHinhThanhToanService loaiHinhThanhToanService = new LoaiHinhThanhToanService();
+    private IKhachHangRService khachHangRService = new KhachHangRService();
 
     private DefaultTableModel dtmSP = new DefaultTableModel();
     private List<QuanLySanPham> lstQLSp = new ArrayList<>();
@@ -231,7 +235,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         TBGioHang.removeColumn(TBGioHang.getColumnModel().getColumn(1));
         TBSanPham.removeColumn(TBSanPham.getColumnModel().getColumn(1));
         btnRefresh.doClick();
-        
+
         cbbPTTT.setSelectedIndex(0);
         txtNgayShip.setEditable(false);
         txtNgayShip.setEnabled(false);
@@ -4953,7 +4957,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             txtDiaChi.setEditable(true);
             txtDiaChiGiaoHang.setEditable(true);
             txtTienShip.setEditable(true);
-            
+
             btnNgayHenKhach.setEnabled(true);
             btnGuiHang.setEnabled(false);
             btnThanhToan1.setEnabled(false);
@@ -5381,6 +5385,14 @@ public class FrmDasBoard extends javax.swing.JFrame {
             LoaiHinhTanhToan lhtt = new LoaiHinhTanhToan(idSelected, tenLHTT, tienMat, tienChuyen);
             JOptionPane.showMessageDialog(this, loaiHinhThanhToanService.saveLoaiHinhTT(lhtt));
 
+            if (!txtTenKH.getText().isEmpty()) {
+                String tenKh = txtTenKH.getText();
+                String sdtKh = txtSDT.getText();
+                String diaChiKh = txtTenKH.getText();
+                KhachHangResponse khachHangResponse = new KhachHangResponse(tenKh, sdtKh, diaChiKh);
+                khachHangRService.saveKhachHang(khachHangResponse);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Bạn chưa chọn hoá đơn");
@@ -5465,7 +5477,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
             float tienChuyen = 0;
             LoaiHinhTanhToan lhtt = new LoaiHinhTanhToan(idSelected, tenLHTT, tienMat, tienChuyen);
             JOptionPane.showMessageDialog(this, loaiHinhThanhToanService.saveLoaiHinhTT(lhtt));
-            
+
             btnNgayHenKhach.setEnabled(true);
             btnGuiHang.setEnabled(false);
             btnThanhToan1.setEnabled(false);
@@ -5506,6 +5518,10 @@ public class FrmDasBoard extends javax.swing.JFrame {
         checkTTKHGiaoHang();
         HoaDon hoaDonTTKHGH = new HoaDon(tienShip, tenkh, diaChi, sdt);
         JOptionPane.showMessageDialog(this, hoaDonService.updateTTKHGiaoHang(hoaDonTTKHGH, idSelected));
+
+        KhachHangResponse khachHangResponse = new KhachHangResponse(tenkh, sdt, diaChi);
+        khachHangRService.saveKhachHang(khachHangResponse);
+
         btnThanhToan1.setEnabled(true);
     }//GEN-LAST:event_btnGuiHangActionPerformed
 
