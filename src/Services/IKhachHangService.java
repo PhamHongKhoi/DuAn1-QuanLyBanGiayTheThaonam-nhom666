@@ -20,4 +20,10 @@ public interface IKhachHangService {
     String update(QuanLyKhachHang qlkh, String id);
 
     String delete(String id);
+
+    List<QuanLyKhachHang> getbyTrangThai(int trangThai);
+
+    List<QuanLyKhachHang> getbyGioiTinh(int gioiTinh);
+
+    List<QuanLyKhachHang> getbyTen(String ten);
 }
