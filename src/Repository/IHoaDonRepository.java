@@ -7,6 +7,7 @@ package Repository;
 import DomainModel.HoaDon;
 import ViewModels.HoaDonResponse;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -37,4 +38,6 @@ public interface IHoaDonRepository {
     boolean updateNgayKhachNhan(HoaDon hoaDon, String id);
     
     boolean updateNgayThanhToan(HoaDon hoaDon, String id);
+    
+    ArrayList<HoaDonResponse> getAllByNgayBatDauNgayKetThuc(Date ngayBatDau, Date ngayKeThuc);
 }

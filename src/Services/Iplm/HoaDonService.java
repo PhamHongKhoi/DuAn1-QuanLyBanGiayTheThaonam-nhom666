@@ -9,6 +9,7 @@ import Repository.Iplm.HoaDonRepository;
 import Services.IHoaDonService;
 import ViewModels.HoaDonResponse;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -108,6 +109,11 @@ public class HoaDonService implements IHoaDonService {
         } else {
             return "Chưa thêm đc thông tin ngày Thanh Toán";
         }
+    }
+    
+    @Override
+    public ArrayList<HoaDonResponse> getAllByNgayBatDauNgayKetThuc(Date ngayBatDau, Date ngayKeThuc) {
+        return hoaDonRepository.getAllByNgayBatDauNgayKetThuc(ngayBatDau, ngayKeThuc);
     }
 
 }
