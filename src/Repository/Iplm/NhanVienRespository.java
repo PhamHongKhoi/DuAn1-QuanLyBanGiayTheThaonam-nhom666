@@ -120,4 +120,76 @@ public class NhanVienRespository implements INhanVien {
         return check > 0;
     }
 
+    @Override
+    public List<NhanVien> getbyTrangThainv(int trangThai) {
+        String query = "select * from DA1.dbo.NhanVien where TrangThai = ?";
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            List<NhanVien> lstNv = new ArrayList<>();
+            ps.setObject(1, trangThai);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                NhanVien nv = new NhanVien(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getString(10), rs.getString(11), rs.getString(12));
+                lstNv.add(nv);
+            }
+            return lstNv;
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
+
+    @Override
+    public List<NhanVien> getbyChucVunv(int chucVu) {
+        String query = "select * from DA1.dbo.NhanVien where ChucVu = ?";
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            List<NhanVien> lstNv = new ArrayList<>();
+            ps.setObject(1, chucVu);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                NhanVien nv = new NhanVien(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getString(10), rs.getString(11), rs.getString(12));
+                lstNv.add(nv);
+            }
+            return lstNv;
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
+
+    @Override
+    public List<NhanVien> getbyTennv(String ten) {
+        String query = "select * from DA1.dbo.NhanVien where Ten = ?";
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            List<NhanVien> lstNv = new ArrayList<>();
+            ps.setObject(1, ten);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                NhanVien nv = new NhanVien(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getString(10), rs.getString(11), rs.getString(12));
+                lstNv.add(nv);
+            }
+            return lstNv;
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
+
+    @Override
+    public List<NhanVien> getbyGioiTinh(int gioiTinh) {
+        String query = "select * from DA1.dbo.NhanVien where GioiTinh = ?";
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            List<NhanVien> lstNv = new ArrayList<>();
+            ps.setObject(1, gioiTinh);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                NhanVien nv = new NhanVien(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getString(10), rs.getString(11), rs.getString(12));
+                lstNv.add(nv);
+            }
+            return lstNv;
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
+
 }

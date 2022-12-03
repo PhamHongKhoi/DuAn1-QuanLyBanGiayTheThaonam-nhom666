@@ -20,4 +20,12 @@ public interface INhanVien {
     boolean update(NhanVien nv, String id);
 
     boolean delete(String id);
+
+    List<NhanVien> getbyTrangThainv(int trangThai);
+
+    List<NhanVien> getbyChucVunv(int chucVu);
+
+    List<NhanVien> getbyTennv(String ten);
+
+    List<NhanVien> getbyGioiTinh(int gioiTinh);
 }

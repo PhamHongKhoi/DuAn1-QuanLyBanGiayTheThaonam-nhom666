@@ -3717,18 +3717,43 @@ public class FrmDasBoard extends javax.swing.JFrame {
         jLabel87.setText("Chức vụ");
 
         cbbTimKiemChucVuNV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
+        cbbTimKiemChucVuNV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbTimKiemChucVuNVActionPerformed(evt);
+            }
+        });
 
         jLabel88.setText("Giới  tính");
 
         jLabel89.setText("Trạng thái");
 
         cbbTimKiemTrangThaiNV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
+        cbbTimKiemTrangThaiNV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbTimKiemTrangThaiNVActionPerformed(evt);
+            }
+        });
 
         btTimKiemTenNV.setText("Tìm kiếm Tên");
+        btTimKiemTenNV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTimKiemTenNVActionPerformed(evt);
+            }
+        });
 
         btAllNv.setText("Tất cả nhân viên");
+        btAllNv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAllNvActionPerformed(evt);
+            }
+        });
 
         cbbTimKiemGioiTinhNV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
+        cbbTimKiemGioiTinhNV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbTimKiemGioiTinhNVActionPerformed(evt);
+            }
+        });
 
         jTimKiemChucVuNV.setText("...");
 
@@ -6117,6 +6142,65 @@ public class FrmDasBoard extends javax.swing.JFrame {
         lstKh = khs.getAll();
         showTableKhachHang(lstKh);
     }//GEN-LAST:event_cbbAllKHActionPerformed
+
+    private void cbbTimKiemChucVuNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTimKiemChucVuNVActionPerformed
+        // TODO add your handling code here:
+        int trangThaiNv = cbbTimKiemChucVuNV.getSelectedIndex();
+        if (trangThaiNv == 0) {
+            jTimKiemChucVuNV.setText("Quản Lý");
+        } else {
+            jTimKiemChucVuNV.setText("Nhân Viên ");
+        }
+        
+        lstQlNhanVien.clear();
+        lstQlNhanVien = nvs.getbyChucVunv(cbbTimKiemChucVuNV.getSelectedIndex());
+        showTableNhanVien(lstQlNhanVien);
+    }//GEN-LAST:event_cbbTimKiemChucVuNVActionPerformed
+
+    private void cbbTimKiemGioiTinhNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTimKiemGioiTinhNVActionPerformed
+        // TODO add your handling code here:
+         int trangThaiNv = cbbTimKiemGioiTinhNV.getSelectedIndex();
+        if (trangThaiNv == 0) {
+            jTimKiemGioiTinhNV.setText("Nam");
+        } else {
+            jTimKiemGioiTinhNV.setText("Nữ ");
+        }
+        
+        lstQlNhanVien.clear();
+        lstQlNhanVien = nvs.getbyGioiTinh(cbbTimKiemGioiTinhNV.getSelectedIndex());
+        showTableNhanVien(lstQlNhanVien);
+    }//GEN-LAST:event_cbbTimKiemGioiTinhNVActionPerformed
+
+    private void cbbTimKiemTrangThaiNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTimKiemTrangThaiNVActionPerformed
+        // TODO add your handling code here:
+         int trangThaiNv = cbbTimKiemTrangThaiNV.getSelectedIndex();
+        if (trangThaiNv == 0) {
+            jTimKiemTrangThaiNV.setText("Đã Nghỉ");
+        } else {
+            jTimKiemTrangThaiNV.setText("Đang Hoạt Động");
+        }
+        
+        lstQlNhanVien.clear();
+        lstQlNhanVien = nvs.getbyTrangThainv(cbbTimKiemTrangThaiNV.getSelectedIndex());
+        showTableNhanVien(lstQlNhanVien);
+    }//GEN-LAST:event_cbbTimKiemTrangThaiNVActionPerformed
+
+    private void btTimKiemTenNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTimKiemTenNVActionPerformed
+        // TODO add your handling code here:
+        if(txtTimKiemTenNV.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"mời nhập tên !");
+        }else{
+            lstQlNhanVien.clear();
+            lstQlNhanVien = nvs.getbyTennv(txtTimKiemTenNV.getText());
+            showTableNhanVien(lstQlNhanVien);
+        }
+    }//GEN-LAST:event_btTimKiemTenNVActionPerformed
+
+    private void btAllNvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAllNvActionPerformed
+        // TODO add your handling code here:
+        lstQlNhanVien = nvs.getAll();
+        showTableNhanVien(lstQlNhanVien);
+    }//GEN-LAST:event_btAllNvActionPerformed
     private QuanLyNhanVien getNhanVien() {
         QuanLyNhanVien qlnv = new QuanLyNhanVien();
         qlnv.setMa(txtMaNhanVien.getText());
