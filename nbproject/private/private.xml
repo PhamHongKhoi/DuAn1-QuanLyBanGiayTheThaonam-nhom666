@@ -3,18 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/daygitthu/src/Services/IKhachHangService.java</file>
-            <file>file:/D:/daygitthu/src/Repository/Iplm/KhachHangRespositoryIplm.java</file>
-            <file>file:/D:/daygitthu/src/Repository/Iplm/NhanVienRespository.java</file>
-            <file>file:/D:/daygitthu/src/Repository/INhanVien.java</file>
-            <file>file:/D:/daygitthu/src/Services/IKhachHangRService.java</file>
-            <file>file:/D:/daygitthu/src/ViewModels/QuanLyKhachHang.java</file>
-            <file>file:/D:/daygitthu/src/Services/INhanVienService.java</file>
-            <file>file:/D:/daygitthu/src/Services/Iplm/KhachHangService.java</file>
-            <file>file:/D:/daygitthu/src/Repository/IKhachHangRespository.java</file>
-            <file>file:/D:/daygitthu/src/Utilities/SQLServerConnection.java</file>
-            <file>file:/D:/daygitthu/src/Views/FrmDasBoard.java</file>
-            <file>file:/D:/daygitthu/src/Services/Iplm/NhanVienService.java</file>
+            <file>file:/C:/Users/Admin/Documents/Da14/src/Repository/Iplm/HoaDonRepository.java</file>
+            <file>file:/C:/Users/Admin/Documents/Da14/src/Services/Iplm/HoaDonService.java</file>
+            <file>file:/C:/Users/Admin/Documents/Da14/src/Views/FrmDasBoard.java</file>
+            <file>file:/C:/Users/Admin/Documents/Da14/src/Services/IHoaDonService.java</file>
+            <file>file:/C:/Users/Admin/Documents/Da14/src/Utilities/SQLServerConnection.java</file>
+            <file>file:/C:/Users/Admin/Documents/Da14/src/Repository/IHoaDonRepository.java</file>
         </group>
     </open-files>
 </project-private>

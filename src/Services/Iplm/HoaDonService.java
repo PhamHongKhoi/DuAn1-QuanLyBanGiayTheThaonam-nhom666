@@ -110,10 +110,25 @@ public class HoaDonService implements IHoaDonService {
             return "Chưa thêm đc thông tin ngày Thanh Toán";
         }
     }
-    
+
     @Override
     public ArrayList<HoaDonResponse> getAllByNgayBatDauNgayKetThuc(Date ngayBatDau, Date ngayKeThuc) {
         return hoaDonRepository.getAllByNgayBatDauNgayKetThuc(ngayBatDau, ngayKeThuc);
+    }
+
+    @Override
+    public ArrayList<HoaDonResponse> getAllByBanHangTaiQuay(String ck, String tm, String cktm) {
+        return hoaDonRepository.getAllByBanHangTaiQuay(ck, tm, cktm);
+    }
+
+    @Override
+    public ArrayList<HoaDonResponse> getAllByGiaoHang(String cod) {
+        return hoaDonRepository.getAllByGiaoHang(cod);
+    }
+
+    @Override
+    public ArrayList<HoaDonResponse> getAllBySDT(String sdt) {
+        return hoaDonRepository.getAllBySDT(sdt);
     }
 
 }
