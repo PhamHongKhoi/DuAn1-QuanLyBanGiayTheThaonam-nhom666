@@ -819,12 +819,14 @@ public class FrmDasBoard extends javax.swing.JFrame {
         tbQlSanPham = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        txtTimKiem = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
+        txtTimKiemSp = new javax.swing.JTextField();
         cbbMaSanPham = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
-        btTimKiem = new javax.swing.JButton();
+        btTimKiemSp = new javax.swing.JButton();
         btAllSanPham = new javax.swing.JButton();
+        jLabel46 = new javax.swing.JLabel();
+        cbbTimKiemTrangThaiSp = new javax.swing.JComboBox<>();
+        jTimKiemTrangThaiSp = new javax.swing.JLabel();
         jpbSanPhamChiTiet = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
@@ -2128,8 +2130,6 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel20.setText("Tìm kiếm sản phẩm");
-
         cbbMaSanPham.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbbMaSanPham.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2139,10 +2139,10 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
         jLabel21.setText("Mã sản phẩm");
 
-        btTimKiem.setText("Tìm kiếm");
-        btTimKiem.addActionListener(new java.awt.event.ActionListener() {
+        btTimKiemSp.setText("Tìm kiếm");
+        btTimKiemSp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btTimKiemActionPerformed(evt);
+                btTimKiemSpActionPerformed(evt);
             }
         });
 
@@ -2153,6 +2153,17 @@ public class FrmDasBoard extends javax.swing.JFrame {
             }
         });
 
+        jLabel46.setText("Trạng Thái");
+
+        cbbTimKiemTrangThaiSp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
+        cbbTimKiemTrangThaiSp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbTimKiemTrangThaiSpActionPerformed(evt);
+            }
+        });
+
+        jTimKiemTrangThaiSp.setText(".");
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -2162,13 +2173,17 @@ public class FrmDasBoard extends javax.swing.JFrame {
                 .addComponent(jLabel21)
                 .addGap(18, 18, 18)
                 .addComponent(cbbMaSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel20)
+                .addGap(110, 110, 110)
+                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbbTimKiemTrangThaiSp, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(201, 201, 201))
+                .addComponent(jTimKiemTrangThaiSp, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                .addComponent(btTimKiemSp, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(txtTimKiemSp, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(327, 327, 327))
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(376, 376, 376)
                 .addComponent(btAllSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2179,11 +2194,13 @@ public class FrmDasBoard extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20)
+                    .addComponent(txtTimKiemSp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbbMaSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21)
-                    .addComponent(btTimKiem))
+                    .addComponent(btTimKiemSp)
+                    .addComponent(jLabel46)
+                    .addComponent(cbbTimKiemTrangThaiSp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTimKiemTrangThaiSp))
                 .addGap(18, 18, 18)
                 .addComponent(btAllSanPham)
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -3086,10 +3103,11 @@ public class FrmDasBoard extends javax.swing.JFrame {
                     .addComponent(txtNgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNgayBatDau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnTKSDT)
-                    .addComponent(txtTKSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbbTenKieuBanHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtTKSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbbTenKieuBanHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(cbbTrangThaiHDLS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
@@ -4807,11 +4825,16 @@ public class FrmDasBoard extends javax.swing.JFrame {
         showTableSanPham(lstQLSp);
     }//GEN-LAST:event_cbbMaSanPhamActionPerformed
 
-    private void btTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTimKiemActionPerformed
-        String ten = txtTimKiem.getText();
-        lstQLSp = spsi.getTenSp(ten);
-        showTableSanPham(lstQLSp);
-    }//GEN-LAST:event_btTimKiemActionPerformed
+    private void btTimKiemSpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTimKiemSpActionPerformed
+        if (txtTimKiemSp.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "mời nhập tên !");
+        } else {
+
+            String ten = txtTimKiemSp.getText();
+            lstQLSp = spsi.getTenSp(ten);
+            showTableSanPham(lstQLSp);
+        }
+    }//GEN-LAST:event_btTimKiemSpActionPerformed
 
     private void rdbtKichCoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtKichCoActionPerformed
         txtDaChinh.setEnabled(false);
@@ -6162,12 +6185,12 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
     private void btTimKiemTenKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTimKiemTenKHActionPerformed
         // TODO add your handling code here:
-        if(txtTimKiemTenKH.getText().isEmpty()){
+        if (txtTimKiemTenKH.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "mời nhập tên tìm kiếm !");
-        }else{
-        lstKh.clear();
-        lstKh = khs.getbyTen(txtTimKiemTenKH.getText());
-        showTableKhachHang(lstKh);
+        } else {
+            lstKh.clear();
+            lstKh = khs.getbyTen(txtTimKiemTenKH.getText());
+            showTableKhachHang(lstKh);
         }
     }//GEN-LAST:event_btTimKiemTenKHActionPerformed
 
@@ -6185,7 +6208,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         } else {
             jTimKiemChucVuNV.setText("Nhân Viên ");
         }
-        
+
         lstQlNhanVien.clear();
         lstQlNhanVien = nvs.getbyChucVunv(cbbTimKiemChucVuNV.getSelectedIndex());
         showTableNhanVien(lstQlNhanVien);
@@ -6193,13 +6216,13 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
     private void cbbTimKiemGioiTinhNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTimKiemGioiTinhNVActionPerformed
         // TODO add your handling code here:
-         int trangThaiNv = cbbTimKiemGioiTinhNV.getSelectedIndex();
+        int trangThaiNv = cbbTimKiemGioiTinhNV.getSelectedIndex();
         if (trangThaiNv == 0) {
             jTimKiemGioiTinhNV.setText("Nam");
         } else {
             jTimKiemGioiTinhNV.setText("Nữ ");
         }
-        
+
         lstQlNhanVien.clear();
         lstQlNhanVien = nvs.getbyGioiTinh(cbbTimKiemGioiTinhNV.getSelectedIndex());
         showTableNhanVien(lstQlNhanVien);
@@ -6207,13 +6230,13 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
     private void cbbTimKiemTrangThaiNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTimKiemTrangThaiNVActionPerformed
         // TODO add your handling code here:
-         int trangThaiNv = cbbTimKiemTrangThaiNV.getSelectedIndex();
+        int trangThaiNv = cbbTimKiemTrangThaiNV.getSelectedIndex();
         if (trangThaiNv == 0) {
             jTimKiemTrangThaiNV.setText("Đã Nghỉ");
         } else {
             jTimKiemTrangThaiNV.setText("Đang Hoạt Động");
         }
-        
+
         lstQlNhanVien.clear();
         lstQlNhanVien = nvs.getbyTrangThainv(cbbTimKiemTrangThaiNV.getSelectedIndex());
         showTableNhanVien(lstQlNhanVien);
@@ -6221,9 +6244,9 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
     private void btTimKiemTenNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTimKiemTenNVActionPerformed
         // TODO add your handling code here:
-        if(txtTimKiemTenNV.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this,"mời nhập tên !");
-        }else{
+        if (txtTimKiemTenNV.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "mời nhập tên !");
+        } else {
             lstQlNhanVien.clear();
             lstQlNhanVien = nvs.getbyTennv(txtTimKiemTenNV.getText());
             showTableNhanVien(lstQlNhanVien);
@@ -6267,25 +6290,37 @@ public class FrmDasBoard extends javax.swing.JFrame {
             TBHoaDonLS.clearSelection();
             listHD = hoaDonService.getAll();
             showDataTableHDLS(listHD);
-        }else if(cbbTrangThaiHDLS.getSelectedIndex() == 1){
+        } else if (cbbTrangThaiHDLS.getSelectedIndex() == 1) {
             int trangThai = 0;
             TBHoaDonLS.clearSelection();
             listHD = hoaDonService.getAllByTrangThai(trangThai);
             showDataTableHDLS(listHD);
-        }
-        else if(cbbTrangThaiHDLS.getSelectedIndex() == 2){
+        } else if (cbbTrangThaiHDLS.getSelectedIndex() == 2) {
             int trangThai = 1;
             TBHoaDonLS.clearSelection();
             listHD = hoaDonService.getAllByTrangThai(trangThai);
             showDataTableHDLS(listHD);
-        }
-        else {
+        } else {
             int trangThai = 2;
             TBHoaDonLS.clearSelection();
             listHD = hoaDonService.getAllByTrangThai(trangThai);
             showDataTableHDLS(listHD);
         }
     }//GEN-LAST:event_cbbTrangThaiHDLSActionPerformed
+
+    private void cbbTimKiemTrangThaiSpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTimKiemTrangThaiSpActionPerformed
+        // TODO add your handling code here:
+        int trangThaiNv = cbbTimKiemTrangThaiSp.getSelectedIndex();
+        if (trangThaiNv == 0) {
+            jTimKiemTrangThaiSp.setText("hết hàng");
+        } else {
+            jTimKiemTrangThaiSp.setText("còn hàng");
+        }
+
+        lstQLSp.clear();
+        lstQLSp = spsi.getTrangThai(cbbTimKiemTrangThaiSp.getSelectedIndex());
+        showTableSanPham(lstQLSp);
+    }//GEN-LAST:event_cbbTimKiemTrangThaiSpActionPerformed
     private QuanLyNhanVien getNhanVien() {
         QuanLyNhanVien qlnv = new QuanLyNhanVien();
         qlnv.setMa(txtMaNhanVien.getText());
@@ -6543,7 +6578,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private javax.swing.JButton btThemThuocTinh;
     private javax.swing.JButton btThoat;
     private javax.swing.JButton btThongKe;
-    private javax.swing.JButton btTimKiem;
+    private javax.swing.JButton btTimKiemSp;
     private javax.swing.JButton btTimKiemTenKH;
     private javax.swing.JButton btTimKiemTenNV;
     private javax.swing.JButton btXoa;
@@ -6589,6 +6624,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbbTimKiemGioiTinhNV;
     private javax.swing.JComboBox<String> cbbTimKiemTrangThaiKH;
     private javax.swing.JComboBox<String> cbbTimKiemTrangThaiNV;
+    private javax.swing.JComboBox<String> cbbTimKiemTrangThaiSp;
     private javax.swing.JComboBox<String> cbbTrangThaiHDLS;
     private javax.swing.JComboBox<String> cbbTrangThaiNhanVien;
     private javax.swing.JComboBox<String> cbbTrangThaiSp;
@@ -6661,7 +6697,6 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -6689,6 +6724,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel52;
@@ -6810,6 +6846,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private javax.swing.JLabel jTimKiemGioiTinhNV;
     private javax.swing.JLabel jTimKiemTrangThaiKH;
     private javax.swing.JLabel jTimKiemTrangThaiNV;
+    private javax.swing.JLabel jTimKiemTrangThaiSp;
     private javax.swing.JLabel jTongTien;
     private javax.swing.JLabel jTongTienGiaoHang;
     private javax.swing.JLabel jTongTienGiaoHangLS;
@@ -6914,7 +6951,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     private javax.swing.JTextField txtTienKhachDuaGiaoHangLS;
     private javax.swing.JTextField txtTienShip;
     private javax.swing.JTextField txtTienShipLS;
-    private javax.swing.JTextField txtTimKiem;
+    private javax.swing.JTextField txtTimKiemSp;
     private javax.swing.JTextField txtTimKiemTenKH;
     private javax.swing.JTextField txtTimKiemTenNV;
     // End of variables declaration//GEN-END:variables

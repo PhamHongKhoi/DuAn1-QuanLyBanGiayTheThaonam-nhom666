@@ -108,16 +108,16 @@ public class SanPhamRespository implements ISanPhamRespository {
 
     @Override
     public List<SanPham> getTenSp(String ten) {
-        String query = "select * from DA1.dbo.SanPham where Ten = ?";
+        String query = "select * from DA1.dbo.SanPham Where Ten = ?";
         try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            List<SanPham> lstSp = new ArrayList<>();
             ps.setObject(1, ten);
-            List<SanPham> sp = new ArrayList<>();
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                SanPham lstSp = new SanPham(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4));
-                sp.add(lstSp);
+            while (rs.next()) {
+                SanPham sp = new SanPham(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4));
+                lstSp.add(sp);
             }
-            return sp;
+            return lstSp;
         } catch (Exception e) {
             e.printStackTrace(System.out);
         }
@@ -139,6 +139,24 @@ public class SanPhamRespository implements ISanPhamRespository {
             e.printStackTrace(System.out);
         }
         return check > 0;
+    }
+
+    @Override
+    public List<SanPham> getTrangThai(int Trangthai) {
+        String query = "select * from DA1.dbo.SanPham where TrangThai = ?";
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
+            List<SanPham> lstSp = new ArrayList<>();
+            ps.setObject(1, Trangthai);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                SanPham sp = new SanPham(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4));
+                lstSp.add(sp);
+            }
+            return lstSp;
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
     }
 
 }

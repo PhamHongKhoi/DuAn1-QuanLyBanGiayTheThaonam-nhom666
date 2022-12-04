@@ -95,4 +95,15 @@ public class SanPhamServiceIplm implements ISanPhamService {
         }
     }
 
+    @Override
+    public List<QuanLySanPham> getTrangThai(int trangThai) {
+        List<SanPham> sp = spr.getTrangThai(trangThai);
+        List<QuanLySanPham> lstSp = new ArrayList<>();
+        for (SanPham spql : sp) {
+            QuanLySanPham ql = new QuanLySanPham(spql.getId(), spql.getMa(), spql.getTen(), spql.getTrangThai());
+            lstSp.add(ql);
+        }
+        return lstSp;
+    }
+
 }
