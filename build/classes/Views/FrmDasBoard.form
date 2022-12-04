@@ -1555,10 +1555,10 @@
                                           <Component id="jlbId" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel71" max="32767" attributes="0"/>
+                                      <Component id="jLabel71" pref="11" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel70" max="32767" attributes="0"/>
-                                      <EmptySpace pref="403" max="32767" attributes="0"/>
+                                      <Component id="jLabel70" pref="13" max="32767" attributes="0"/>
+                                      <EmptySpace pref="414" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jLabel14" max="32767" attributes="0"/>
                                           <Component id="jLabel73" max="32767" attributes="0"/>
@@ -1817,17 +1817,17 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="cbbMaSanPham" min="-2" pref="123" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="btTimKiemMAsp" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Component id="txtTimKiemMaSp" min="-2" pref="164" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                                       <Component id="jLabel46" min="-2" pref="82" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="cbbTimKiemTrangThaiSp" min="-2" pref="123" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jTimKiemTrangThaiSp" min="-2" pref="70" max="-2" attributes="0"/>
-                                      <EmptySpace pref="162" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="btTimKiemSp" min="-2" pref="108" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                       <Component id="txtTimKiemSp" min="-2" pref="303" max="-2" attributes="0"/>
@@ -1846,12 +1846,12 @@
                                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="txtTimKiemSp" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cbbMaSanPham" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="btTimKiemSp" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="cbbTimKiemTrangThaiSp" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTimKiemTrangThaiSp" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btTimKiemMAsp" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtTimKiemMaSp" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="btAllSanPham" min="-2" max="-2" attributes="0"/>
@@ -1862,29 +1862,6 @@
                           </Layout>
                           <SubComponents>
                             <Component class="javax.swing.JTextField" name="txtTimKiemSp">
-                            </Component>
-                            <Component class="javax.swing.JComboBox" name="cbbMaSanPham">
-                              <Properties>
-                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
-                                  </StringArray>
-                                </Property>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbbMaSanPhamActionPerformed"/>
-                              </Events>
-                              <AuxValues>
-                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                              </AuxValues>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel21">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="M&#xe3; s&#x1ea3;n ph&#x1ea9;m"/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JButton" name="btTimKiemSp">
                               <Properties>
@@ -1927,6 +1904,16 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="."/>
                               </Properties>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="btTimKiemMAsp">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="t&#xec;m ki&#x1ebf;m m&#xe3;"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btTimKiemMAspActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="txtTimKiemMaSp">
                             </Component>
                           </SubComponents>
                         </Container>
