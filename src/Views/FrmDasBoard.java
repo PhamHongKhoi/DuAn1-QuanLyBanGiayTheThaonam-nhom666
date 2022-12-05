@@ -4752,6 +4752,9 @@ public class FrmDasBoard extends javax.swing.JFrame {
         int taoHD = JOptionPane.showConfirmDialog(this, "Bạn có muốn thêm ?", "thêm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
         if (taoHD == JOptionPane.YES_OPTION) {
+            listHD = hoaDonService.getAll();
+            showDataTableHD(listHD);
+
             ArrayList<HoaDonResponse> list = hoaDonService.getAll();
             int i = list.size() + 1;
             HoaDon hoaDon = new HoaDon();
@@ -4774,7 +4777,77 @@ public class FrmDasBoard extends javax.swing.JFrame {
             txtMaHDGiaoHang.setText((String) TBHoaDon.getModel().getValueAt(row, 2));
             txtMaNVGiaoHang.setText((String) TBHoaDon.getModel().getValueAt(row, 4));
             txtNgayTaoGiaoHang.setText((String) TBHoaDon.getModel().getValueAt(row, 3));
+
             String id = (String) TBHoaDon.getModel().getValueAt(row, 1);
+            System.out.println(id);
+            // lay thong tin khach hang
+            ArrayList<HoaDonResponse> listTTKH = hoaDonService.getTTKhByID(id);
+            String tenKH;
+            String sdt;
+            String diaChi;
+            String ngayThanhToan;
+            for (HoaDonResponse hoaDonResponse : listTTKH) {
+                tenKH = hoaDonResponse.getTenNguoiNhan();
+                sdt = hoaDonResponse.getSdt();
+                diaChi = hoaDonResponse.getDiaChi();
+                ngayThanhToan = hoaDonResponse.getNgayThanhToan();
+                txtDiaChi.setText(diaChi);
+                txtTenKH.setText(tenKH);
+                txtSDT.setText(sdt);
+                txtDiaChiGiaoHang.setText(diaChi);
+                txtTenKHGiaoHang.setText(tenKH);
+                txtSDTGiaoHang.setText(sdt);
+                txtNgayThanhToan.setText(ngayThanhToan);
+            }
+            ArrayList<LoaiHinhTanhToan> listLoaiHinhTT = loaiHinhThanhToanService.getTTThanhToanByID(id);
+            String tenPttt;
+            float tienMat;
+            float tienCK;
+            for (LoaiHinhTanhToan loaiHinhTanhToan : listLoaiHinhTT) {
+                tenPttt = loaiHinhTanhToan.getTenPTTT();
+                tienMat = loaiHinhTanhToan.getTienMat();
+                tienCK = loaiHinhTanhToan.getTienChuyenKhoan();
+                cbbPTTT.setSelectedItem(tenPttt);
+                txtTienKhachDua.setText(Integer.valueOf((int) tienMat) + "");
+                txtTienChuyenKhoan.setText(Integer.valueOf((int) tienCK) + "");
+                txtTienKhachDuaGiaoHang.setText(Integer.valueOf((int) tienMat) + "");
+            }
+
+            ArrayList<HoaDonResponse> listTTKHGiaoHang = hoaDonService.getTTKhGiaoHangByID(id);
+            String tenKHGH;
+            String sdtGH;
+            String diaChiGH;
+            float tienShip;
+            String ngayShip;
+            String ngayNhan;
+            Date ngayHenKhach;
+            for (HoaDonResponse hoaDonResponseGH : listTTKHGiaoHang) {
+                tenKHGH = hoaDonResponseGH.getTenNguoiNhan();
+                sdtGH = hoaDonResponseGH.getSdt();
+                diaChiGH = hoaDonResponseGH.getDiaChi();
+                tienShip = hoaDonResponseGH.getTienShip();
+                ngayShip = hoaDonResponseGH.getNgayShip();
+                ngayNhan = hoaDonResponseGH.getNgayNhan();
+                ngayHenKhach = hoaDonResponseGH.getNgayHenKhach();
+                txtDiaChiGiaoHang.setText(diaChiGH);
+                txtTenKHGiaoHang.setText(tenKHGH);
+                txtSDTGiaoHang.setText(sdtGH);
+                txtTienShip.setText(Integer.valueOf((int) tienShip) + "");
+                txtNgayNhan.setText(ngayNhan);
+                txtNgayShip.setText(ngayShip);
+                jdcNgayHenKhach.setDate(ngayHenKhach);
+
+            }
+
+            //show len tbhoadon
+            listCTHD = chiTietHoaDonService.getDataByID(id);
+            showDataTableCTHD(listCTHD);
+            showTongTien();
+            txtTienKhachDua.setText("0");
+            txtTienKhachDuaGiaoHang.setText("0");
+            txtTienChuyenKhoan.setText("0");
+            jTienThua.setText("-");
+            jTienThuaGiaoHang.setText("-");
         } else if (taoHD == JOptionPane.NO_OPTION) {
             JOptionPane.showMessageDialog(this, "Bạn đã tạo hoá đơn");
         }
@@ -5212,46 +5285,50 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
                     int rowHD = TBHoaDon.getSelectedRow();
                     int rowSP = TBSanPham.getSelectedRow();
-                    try {
-                        jTongTien.setText("-");
-                        String idHDSelected = (String) TBHoaDon.getModel().getValueAt(rowHD, 1);
-                        String hinhAnh = (String) TBSanPham.getModel().getValueAt(row, 9);
-                        lblHinhAnhBH.setText("");
-                        ImageIcon imgIcon = new ImageIcon(getClass().getResource("/image/" + hinhAnh));
-                        Image img = imgIcon.getImage();
-                        img.getScaledInstance(lblHinhAnhBH.getWidth(), lblHinhAnhBH.getY(), 0);
-                        lblHinhAnhBH.setIcon(imgIcon);
+                    if (TBHoaDon.isRowSelected(rowHD) == false) {
+                        btnTaoHoaDon.doClick();
+                    } else {
+                        try {
+                            jTongTien.setText("-");
+                            String idHDSelected = (String) TBHoaDon.getModel().getValueAt(rowHD, 1);
+                            String hinhAnh = (String) TBSanPham.getModel().getValueAt(row, 9);
+                            lblHinhAnhBH.setText("");
+                            ImageIcon imgIcon = new ImageIcon(getClass().getResource("/image/" + hinhAnh));
+                            Image img = imgIcon.getImage();
+                            img.getScaledInstance(lblHinhAnhBH.getWidth(), lblHinhAnhBH.getY(), 0);
+                            lblHinhAnhBH.setIcon(imgIcon);
 
-                        // them san pham vao hdct
-                        String input = JOptionPane.showInputDialog("Mời nhập số lượng: ");
-                        if ((int) TBSanPham.getModel().getValueAt(row, 6) < Integer.valueOf(input)) {
-                            JOptionPane.showMessageDialog(rootPane, "Số lượng hàng vượt quá lượng tồn kho");
-                            return;
+                            // them san pham vao hdct
+                            String input = JOptionPane.showInputDialog("Mời nhập số lượng: ");
+                            if ((int) TBSanPham.getModel().getValueAt(row, 6) < Integer.valueOf(input)) {
+                                JOptionPane.showMessageDialog(rootPane, "Số lượng hàng vượt quá lượng tồn kho");
+                                return;
+                            }
+                            chiTietHoaDon.setIdCTSP((String) TBSanPham.getModel().getValueAt(row, 1));
+                            chiTietHoaDon.setMaSP((String) TBSanPham.getModel().getValueAt(row, 2));
+                            chiTietHoaDon.setTenSP((String) TBSanPham.getModel().getValueAt(row, 3));
+                            chiTietHoaDon.setSoLuong(Integer.valueOf(input));
+                            chiTietHoaDon.setDonGia((float) TBSanPham.getModel().getValueAt(row, 8));
+                            idHDSelected = (String) TBHoaDon.getModel().getValueAt(rowHD, 1);
+                            ChiTietHoaDon chiTietHoaDonAdd = new ChiTietHoaDon(idHDSelected, (String) TBSanPham.getModel().getValueAt(row, 1), Integer.valueOf(input), (float) TBSanPham.getModel().getValueAt(row, 8));
+
+                            chiTietHoaDonService.saveHoaDonCT(chiTietHoaDonAdd);
+                            listCTHD.add(chiTietHoaDon);
+                            showDataTableCTHD(listCTHD);
+
+                            // cap nhap lai danh sach sp sau khi them vao gio
+                            String idSelected = (String) TBSanPham.getModel().getValueAt(row, 1);
+                            int soLuongSauKhiThem = (int) TBSanPham.getModel().getValueAt(rowSP, 6) - Integer.valueOf(input);
+                            DanhSachSanPhamResponse dsspr = new DanhSachSanPhamResponse(soLuongSauKhiThem);
+                            JOptionPane.showMessageDialog(rootPane, danhSAchSanPhamService.updateSoLuongSP(dsspr, idSelected));
+                            listDssp = danhSAchSanPhamService.getAll();
+                            showDataTableDSSP(listDssp);
+                            showTongTien();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            JOptionPane.showMessageDialog(rootPane, "Ban chua chon hoa don");
+
                         }
-                        chiTietHoaDon.setIdCTSP((String) TBSanPham.getModel().getValueAt(row, 1));
-                        chiTietHoaDon.setMaSP((String) TBSanPham.getModel().getValueAt(row, 2));
-                        chiTietHoaDon.setTenSP((String) TBSanPham.getModel().getValueAt(row, 3));
-                        chiTietHoaDon.setSoLuong(Integer.valueOf(input));
-                        chiTietHoaDon.setDonGia((float) TBSanPham.getModel().getValueAt(row, 8));
-                        idHDSelected = (String) TBHoaDon.getModel().getValueAt(rowHD, 1);
-                        ChiTietHoaDon chiTietHoaDonAdd = new ChiTietHoaDon(idHDSelected, (String) TBSanPham.getModel().getValueAt(row, 1), Integer.valueOf(input), (float) TBSanPham.getModel().getValueAt(row, 8));
-
-                        chiTietHoaDonService.saveHoaDonCT(chiTietHoaDonAdd);
-                        listCTHD.add(chiTietHoaDon);
-                        showDataTableCTHD(listCTHD);
-
-                        // cap nhap lai danh sach sp sau khi them vao gio
-                        String idSelected = (String) TBSanPham.getModel().getValueAt(row, 1);
-                        int soLuongSauKhiThem = (int) TBSanPham.getModel().getValueAt(rowSP, 6) - Integer.valueOf(input);
-                        DanhSachSanPhamResponse dsspr = new DanhSachSanPhamResponse(soLuongSauKhiThem);
-                        JOptionPane.showMessageDialog(rootPane, danhSAchSanPhamService.updateSoLuongSP(dsspr, idSelected));
-                        listDssp = danhSAchSanPhamService.getAll();
-                        showDataTableDSSP(listDssp);
-                        showTongTien();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        JOptionPane.showMessageDialog(rootPane, "Ban chua chon hoa don");
-                        return;
                     }
 
                     //show hinh anh
