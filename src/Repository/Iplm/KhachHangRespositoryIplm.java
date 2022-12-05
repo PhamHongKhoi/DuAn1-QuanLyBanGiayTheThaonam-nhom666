@@ -63,15 +63,15 @@ public class KhachHangRespositoryIplm implements IKhachHangRespository {
 
     @Override
     public boolean update(KhachHang kh, String id) {
-        String query = "UPDATE [dbo].[KhachHang]"
-                + "   SET [Ma] = ?"
+        String query = " UPDATE [dbo].[KhachHang]\n"
+                + "   SET    [Ma] = ?"
                 + "      ,[Ten] = ?"
                 + "      ,[GioiTinh] = ?"
                 + "      ,[NgaySinh] = ?"
                 + "      ,[Sdt] = ?"
                 + "      ,[DiaChi] = ?"
                 + "      ,[TrangThai] = ?"
-                + " WHERE [Id] = ? ";
+                + " WHERE Id = ? ";
         int check = 0;
         try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
             ps.setObject(1, kh.getMa());
@@ -118,12 +118,12 @@ public class KhachHangRespositoryIplm implements IKhachHangRespository {
         } catch (Exception e) {
             e.printStackTrace(System.out);
         }
-        return null; 
+        return null;
     }
 
     @Override
     public List<KhachHang> getbyGioiTinh(int gioiTinh) {
-         String query = "select * from DA1.dbo.KhachHang where GioiTinh = ?";
+        String query = "select * from DA1.dbo.KhachHang where GioiTinh = ?";
         try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
             List<KhachHang> lstkh = new ArrayList<>();
             ps.setObject(1, gioiTinh);
@@ -141,7 +141,7 @@ public class KhachHangRespositoryIplm implements IKhachHangRespository {
 
     @Override
     public List<KhachHang> getbyTen(String ten) {
-         String query = "select * from DA1.dbo.KhachHang where Ten = ?";
+        String query = "select * from DA1.dbo.KhachHang where Ten = ?";
         try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareCall(query)) {
             List<KhachHang> lstkh = new ArrayList<>();
             ps.setObject(1, ten);
@@ -156,8 +156,9 @@ public class KhachHangRespositoryIplm implements IKhachHangRespository {
         }
         return null;
     }
+
     public static void main(String[] args) {
         List<KhachHang> lists = new KhachHangRespositoryIplm().getbyTrangThai(0);
-        System.out.println(""+lists.toString());
+        System.out.println("" + lists.toString());
     }
 }

@@ -334,6 +334,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
     }
 
     private QuanLyKhachHang getKhachHang() {
+
         String ma = txtMaKhachHang.getText();
         String ten = txtTenKhachHang.getText();
         Date ngaySinh = jdcNgaySinhKhachHang.getDate();
@@ -348,7 +349,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         String diaChi = txtDiaChiKhachHang.getText();
         int trangThai = cbbKhachHang.getSelectedIndex();
 
-        QuanLyKhachHang qlkh = new QuanLyKhachHang(null, ma, ten, gender, ngaySinh, sdt, diaChi, trangThai);
+        QuanLyKhachHang qlkh = new QuanLyKhachHang("", ma, ten, gender, ngaySinh, sdt, diaChi, trangThai);
 
         return qlkh;
     }
@@ -4021,7 +4022,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         jPanel30Layout.setVerticalGroup(
             jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel30Layout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
+                .addContainerGap(111, Short.MAX_VALUE)
                 .addComponent(btThemKhachHang)
                 .addGap(18, 18, 18)
                 .addComponent(btSuaKhachHang)
@@ -4033,6 +4034,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         );
 
         buttonGroup5.add(rdbtNamKhachHang);
+        rdbtNamKhachHang.setSelected(true);
         rdbtNamKhachHang.setText("Nam");
 
         buttonGroup5.add(rdbtNuKhachHang);
@@ -4271,13 +4273,18 @@ public class FrmDasBoard extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(pnlCard6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(122, 122, 122))
             .addGroup(pnlCard6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel58)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlCard6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCard6Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jPanel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlCard6Layout.createSequentialGroup()
+                        .addComponent(jLabel58)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pnlCard6Layout.setVerticalGroup(
             pnlCard6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5583,10 +5590,17 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
         if (them == JOptionPane.YES_OPTION) {
             QuanLyKhachHang qlkh = getKhachHang();
-            String add = khs.add(qlkh);
-            JOptionPane.showMessageDialog(this, add);
-            lstKh = khs.getAll();
-            showTableKhachHang(lstKh);
+            if (txtMaKhachHang.getText().isEmpty() || txtTenKhachHang.getText().isEmpty() || txtDiaChiKhachHang.getText().isEmpty() || txtSoDienThoaiKhachHang.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "không được để trống !");
+//            } else if (txtSoDienThoaiKhachHang.getText().matches("(^\\(\\d{3}\\))\\+s(\\d{4})\\s{1,}(\\d{4})$")== false ){
+//                JOptionPane.showMessageDialog(this, " số điện thoại sai định dạng !");
+
+            } else {
+                String add = khs.add(qlkh);
+                JOptionPane.showMessageDialog(this, add);
+                lstKh = khs.getAll();
+                showTableKhachHang(lstKh);
+            }
         } else if (them == JOptionPane.NO_OPTION) {
             JOptionPane.showMessageDialog(this, "Bạn đã hủy thêm");
         }
@@ -5597,7 +5611,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
         if (sua == JOptionPane.YES_OPTION) {
             QuanLyKhachHang qlkh = getKhachHang();
-            String id = jlbId.getText();
+            String id = jlbIdKhachHang.getText();
             String update = khs.update(qlkh, id);
             JOptionPane.showMessageDialog(this, update);
             lstKh = khs.getAll();
@@ -6316,9 +6330,9 @@ public class FrmDasBoard extends javax.swing.JFrame {
 
     private void btTimKiemMAspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTimKiemMAspActionPerformed
         // TODO add your handling code here:
-        if(txtTimKiemMaSp.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this,"mời nhập mã cần tìm !");
-        }else{
+        if (txtTimKiemMaSp.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "mời nhập mã cần tìm !");
+        } else {
             lstQLSp = spsi.getMaSp(txtTimKiemMaSp.getText());
             showTableSanPham(lstQLSp);
         }
