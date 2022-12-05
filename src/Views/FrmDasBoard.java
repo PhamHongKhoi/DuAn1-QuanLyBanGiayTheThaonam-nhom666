@@ -1131,7 +1131,7 @@ public class FrmDasBoard extends javax.swing.JFrame {
         });
 
         btHoaDon.setBackground(new java.awt.Color(0, 255, 51));
-        btHoaDon.setText("Hóa đơn");
+        btHoaDon.setText("Lịch Sử");
         btHoaDon.setBorder(null);
         btHoaDon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
