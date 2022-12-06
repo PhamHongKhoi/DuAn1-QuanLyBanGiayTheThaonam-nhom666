@@ -24,10 +24,32 @@ public class ThongKeService implements IThongKeService {
         List<ThongKe> lstThongKe = tkr.getAll();
         List<QuanLyThongKe> lstQlThongKe = new ArrayList<>();
         for (ThongKe tk : lstThongKe) {
-            QuanLyThongKe qlTk = new QuanLyThongKe(tk.getTen(), tk.getSoLuong(), tk.getDonGia(), tk.getNgayTao());
+            QuanLyThongKe qlTk = new QuanLyThongKe(tk.getTen(), tk.getSoLuong(), tk.getDonGia(), tk.getNgayTao(), tk.getTongTien());
             lstQlThongKe.add(qlTk);
         }
         return lstQlThongKe;
+    }
+
+    @Override
+    public List<QuanLyThongKe> getHangHuy() {
+        List<ThongKe> lstThongKe = tkr.getHangHuy();
+        List<QuanLyThongKe> lstQlThongKe = new ArrayList<>();
+        for (ThongKe tk : lstThongKe) {
+            QuanLyThongKe qlTk = new QuanLyThongKe(tk.getTen(), tk.getSoLuong(), tk.getDonGia(), tk.getNgayTao(), tk.getTrangThai());
+            lstQlThongKe.add(qlTk);
+        }
+        return lstQlThongKe;
+    }
+
+    @Override
+    public List<QuanLyThongKe> getTongTien() {
+        List<ThongKe> lstThongKe = tkr.getTongTien();
+        List<QuanLyThongKe> lstQlTk = new ArrayList<>();
+        for (ThongKe tk : lstThongKe) {
+            QuanLyThongKe qlTk = new QuanLyThongKe(tk.getTongTien());
+            lstQlTk.add(qlTk);
+        }
+        return lstQlTk;
     }
 
 }

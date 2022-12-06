@@ -14,4 +14,8 @@ import java.util.List;
 public interface IThongKeService {
 
     List<QuanLyThongKe> getAll();
+
+    List<QuanLyThongKe> getHangHuy();
+
+    List<QuanLyThongKe> getTongTien();
 }

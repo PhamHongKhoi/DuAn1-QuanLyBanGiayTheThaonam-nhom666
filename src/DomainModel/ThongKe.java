@@ -16,15 +16,32 @@ public class ThongKe {
     private int soLuong;
     private double donGia;
     private Date ngayTao;
+    private int trangThai;
+    private float tongTien;
 
     public ThongKe() {
     }
 
-    public ThongKe(String ten, int soLuong, double donGia, Date ngayTao) {
+    public ThongKe(float tongTien) {
+        this.tongTien = tongTien;
+    }
+
+    public ThongKe(String ten, int soLuong, double donGia, Date ngayTao, float tongTien) {
         this.ten = ten;
         this.soLuong = soLuong;
         this.donGia = donGia;
         this.ngayTao = ngayTao;
+        this.tongTien = tongTien;
+    }
+
+
+
+    public ThongKe(String ten, int soLuong, double donGia, Date ngayTao, int trangThai) {
+        this.ten = ten;
+        this.soLuong = soLuong;
+        this.donGia = donGia;
+        this.ngayTao = ngayTao;
+        this.trangThai = trangThai;
     }
 
     public String getTen() {
@@ -59,9 +76,27 @@ public class ThongKe {
         this.ngayTao = ngayTao;
     }
 
+    public int getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(int trangThai) {
+        this.trangThai = trangThai;
+    }
+
+    public float getTongTien() {
+        return tongTien;
+    }
+
+    public void setTongTien(float tongTien) {
+        this.tongTien = tongTien;
+    }
+
     @Override
     public String toString() {
-        return "ThongKe{" + "ten=" + ten + ", soLuong=" + soLuong + ", donGia=" + donGia + ", ngayTao=" + ngayTao + '}';
+        return "ThongKe{" + "ten=" + ten + ", soLuong=" + soLuong + ", donGia=" + donGia + ", ngayTao=" + ngayTao + ", trangThai=" + trangThai + ", tongTien=" + tongTien + '}';
     }
+
+
 
 }

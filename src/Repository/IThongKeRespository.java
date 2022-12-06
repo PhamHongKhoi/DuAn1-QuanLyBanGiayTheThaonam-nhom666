@@ -14,4 +14,8 @@ import java.util.List;
 public interface IThongKeRespository {
 
     List<ThongKe> getAll();
+
+    List<ThongKe> getHangHuy();
+
+    List<ThongKe> getTongTien();
 }
