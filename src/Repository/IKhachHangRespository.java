@@ -20,4 +20,11 @@ public interface IKhachHangRespository {
     boolean update(KhachHang kh, String id);
 
     boolean delete(String id);
+
+    List<KhachHang> getbyTrangThai(int trangThai);
+
+    List<KhachHang> getbyGioiTinh(int gioiTinh);
+
+    List<KhachHang> getbyTen(String ten);
+
 }

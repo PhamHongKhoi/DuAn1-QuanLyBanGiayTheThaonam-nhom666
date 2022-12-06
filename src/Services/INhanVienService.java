@@ -20,4 +20,12 @@ public interface INhanVienService {
     String update(QuanLyNhanVien qlnv, String id);
 
     String delete(String id);
+
+    List<QuanLyNhanVien> getbyTrangThainv(int trangThai);
+
+    List<QuanLyNhanVien> getbyChucVunv(int chucVu);
+
+    List<QuanLyNhanVien> getbyTennv(String ten);
+
+    List<QuanLyNhanVien> getbyGioiTinh(int gioiTinh);
 }

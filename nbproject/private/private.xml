@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/Iplm/NhanVienService.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/DomainModel/ChatLieu.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyNhaSanXuat.java</file>
@@ -103,6 +104,14 @@
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/ViewModels/QuanLyKhachHang.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/INhanVienService.java</file>
             <file>file:/D:/java/DuAn1-main-git/DuAn1-QuanLyBanGiayTheThaonam-nhom666/src/Services/IKichCoService.java</file>
+=======
+            <file>file:/D:/Da1MoiPULL/src/Views/FrmDasBoard.java</file>
+            <file>file:/D:/Da1MoiPULL/src/Repository/Iplm/SanPhamRespository.java</file>
+            <file>file:/D:/Da1MoiPULL/src/Services/ISanPhamService.java</file>
+            <file>file:/D:/Da1MoiPULL/src/Repository/ISanPhamRespository.java</file>
+            <file>file:/D:/Da1MoiPULL/src/Services/Iplm/SanPhamServiceIplm.java</file>
+            <file>file:/D:/Da1MoiPULL/src/Utilities/SQLServerConnection.java</file>
+>>>>>>> 091315dbbc0d4760f64f6d7f73907a9e3ae5282a
         </group>
     </open-files>
 </project-private>

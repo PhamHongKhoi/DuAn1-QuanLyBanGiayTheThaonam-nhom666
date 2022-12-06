@@ -26,4 +26,7 @@ public interface ISanPhamService {
     List<QuanLySanPham> getTenSp(String ten);
 
     String themNhanh(QuanLySanPham qlSp);
+
+    List<QuanLySanPham> getTrangThai(int trangThai);
+
 }

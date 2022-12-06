@@ -239,4 +239,81 @@ public class HoaDonRepository implements IHoaDonRepository {
         return check > 0;
     }
 
+    public ArrayList<HoaDonResponse> getAllByNgayBatDauNgayKetThuc(Date ngayBatDau, Date ngayKeThuc) {
+        String query = "SELECT Id, Ma, NgayTao, TrangThai, TenKhachHang, SDT, DiaChi\n"
+                + "FROM     dbo.HoaDon where NgayTao BETWEEN ? AND ?";
+        ArrayList<HoaDonResponse> list = new ArrayList<>();
+        try (Connection con = SQLServerConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query);) {
+            ps.setObject(1, ngayBatDau);
+            ps.setObject(2, ngayKeThuc);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                HoaDonResponse hoaDonResponse = new HoaDonResponse(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7));
+                list.add(hoaDonResponse);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<HoaDonResponse> getAllByBanHangTaiQuay(String ck, String tm, String cktm) {
+        String query = "SELECT dbo.HoaDon.Id, dbo.HoaDon.Ma, dbo.HoaDon.NgayTao, dbo.HoaDon.TrangThai\n"
+                + "FROM     dbo.HoaDon INNER JOIN\n"
+                + "                  dbo.LoaiHinhThanhToan ON dbo.HoaDon.Id = dbo.LoaiHinhThanhToan.IdHD where TenPTTT = ? or TenPTTT = ? or TenPTTT = ?";
+        ArrayList<HoaDonResponse> list = new ArrayList<>();
+        try (Connection con = SQLServerConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query);) {
+            ps.setObject(1, ck);
+            ps.setObject(2, tm);
+            ps.setObject(3, cktm);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                HoaDonResponse hoaDonResponse = new HoaDonResponse(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4));
+                list.add(hoaDonResponse);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<HoaDonResponse> getAllByGiaoHang(String cod) {
+        String query = "SELECT dbo.HoaDon.Id, dbo.HoaDon.Ma, dbo.HoaDon.NgayTao, dbo.HoaDon.TrangThai\n"
+                + "FROM     dbo.HoaDon INNER JOIN\n"
+                + "                  dbo.LoaiHinhThanhToan ON dbo.HoaDon.Id = dbo.LoaiHinhThanhToan.IdHD where TenPTTT = ?";
+        ArrayList<HoaDonResponse> list = new ArrayList<>();
+        try (Connection con = SQLServerConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query);) {
+            ps.setObject(1, cod);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                HoaDonResponse hoaDonResponse = new HoaDonResponse(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4));
+                list.add(hoaDonResponse);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<HoaDonResponse> getAllBySDT(String sdt) {
+        String query = "SELECT Id, Ma, NgayTao, TrangThai\n"
+                + "FROM     dbo.HoaDon where SDT = ?";
+        ArrayList<HoaDonResponse> list = new ArrayList<>();
+        try (Connection con = SQLServerConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query);) {
+            ps.setObject(1, sdt);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                HoaDonResponse hoaDonResponse = new HoaDonResponse(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4));
+                list.add(hoaDonResponse);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

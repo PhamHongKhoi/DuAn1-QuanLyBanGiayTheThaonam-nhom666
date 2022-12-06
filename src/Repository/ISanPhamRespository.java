@@ -26,4 +26,6 @@ public interface ISanPhamRespository {
     List<SanPham> getTenSp(String ten);
 
     boolean themNhanh(SanPham sp);
+
+    List<SanPham> getTrangThai(int Trangthai);
 }

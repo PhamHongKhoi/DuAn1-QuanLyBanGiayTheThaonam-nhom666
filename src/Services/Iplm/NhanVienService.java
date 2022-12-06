@@ -62,4 +62,49 @@ public class NhanVienService implements INhanVienService {
         }
     }
 
+    @Override
+    public List<QuanLyNhanVien> getbyTrangThainv(int trangThai) {
+         List<NhanVien> nv = nvr.getbyTrangThainv(trangThai);
+        List<QuanLyNhanVien> lstQlNv = new ArrayList<>();
+        for (NhanVien ql : nv) {
+            QuanLyNhanVien qlnv = new QuanLyNhanVien(ql.getId(), ql.getMa(), ql.getTen(), ql.getGioiTinh(), ql.getNgaySinh(), ql.getDiaChi(), ql.getSoDienThoai(), ql.getChucVu(), ql.getTrangThai(), ql.getTenTaiKhoan(), ql.getMatKhau(), ql.getHinhAnh());
+            lstQlNv.add(qlnv);
+        }
+        return lstQlNv;
+    }
+    
+
+    @Override
+    public List<QuanLyNhanVien> getbyChucVunv(int chucVu) {
+         List<NhanVien> nv = nvr.getbyChucVunv(chucVu);
+        List<QuanLyNhanVien> lstQlNv = new ArrayList<>();
+        for (NhanVien ql : nv) {
+            QuanLyNhanVien qlnv = new QuanLyNhanVien(ql.getId(), ql.getMa(), ql.getTen(), ql.getGioiTinh(), ql.getNgaySinh(), ql.getDiaChi(), ql.getSoDienThoai(), ql.getChucVu(), ql.getTrangThai(), ql.getTenTaiKhoan(), ql.getMatKhau(), ql.getHinhAnh());
+            lstQlNv.add(qlnv);
+        }
+        return lstQlNv;
+    }
+
+    @Override
+    public List<QuanLyNhanVien> getbyTennv(String ten) {
+         List<NhanVien> nv = nvr.getbyTennv(ten);
+        List<QuanLyNhanVien> lstQlNv = new ArrayList<>();
+        for (NhanVien ql : nv) {
+            QuanLyNhanVien qlnv = new QuanLyNhanVien(ql.getId(), ql.getMa(), ql.getTen(), ql.getGioiTinh(), ql.getNgaySinh(), ql.getDiaChi(), ql.getSoDienThoai(), ql.getChucVu(), ql.getTrangThai(), ql.getTenTaiKhoan(), ql.getMatKhau(), ql.getHinhAnh());
+            lstQlNv.add(qlnv);
+        }
+        return lstQlNv;
+    }
+
+    @Override
+    public List<QuanLyNhanVien> getbyGioiTinh(int gioiTinh) {
+         List<NhanVien> nv = nvr.getbyGioiTinh(gioiTinh);
+        List<QuanLyNhanVien> lstQlNv = new ArrayList<>();
+        for (NhanVien ql : nv) {
+            QuanLyNhanVien qlnv = new QuanLyNhanVien(ql.getId(), ql.getMa(), ql.getTen(), ql.getGioiTinh(), ql.getNgaySinh(), ql.getDiaChi(), ql.getSoDienThoai(), ql.getChucVu(), ql.getTrangThai(), ql.getTenTaiKhoan(), ql.getMatKhau(), ql.getHinhAnh());
+            lstQlNv.add(qlnv);
+        }
+        return lstQlNv;
+    }
+
 }
